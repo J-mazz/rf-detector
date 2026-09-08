@@ -42,11 +42,11 @@ public:
         const std::int16_t* __restrict src_interleaved,
         float* __restrict dst_i,
         float* __restrict dst_q,
-        std::size_t complex_count) noexcept
+        std::size_t complex_count, float scale = S16Scale) noexcept
     {
         for (std::size_t n = 0; n < complex_count; ++n) {
-            dst_i[n] = static_cast<float>(src_interleaved[2 * n])     * S16Scale;
-            dst_q[n] = static_cast<float>(src_interleaved[2 * n + 1]) * S16Scale;
+            dst_i[n] = static_cast<float>(src_interleaved[2 * n])     * scale;
+            dst_q[n] = static_cast<float>(src_interleaved[2 * n + 1]) * scale;
         }
     }
 
@@ -89,9 +89,9 @@ public:
         const std::int16_t* __restrict src_interleaved,
         float* __restrict dst_i,
         float* __restrict dst_q,
-        std::size_t complex_count) noexcept
+        std::size_t complex_count, float scale = S16Scale) noexcept
     {
-        const float32x4_t vscale = vdupq_n_f32(S16Scale);
+        const float32x4_t vscale = vdupq_n_f32(scale);
         std::size_t n = 0;
         for (; n + 7 < complex_count; n += 8) {
             const int16x8x2_t raw = vld2q_s16(src_interleaved + 2 * n);   // structure load deinterleaves
@@ -106,7 +106,7 @@ public:
         }
         if (n < complex_count) {
             GenericFallback::deinterleave_and_convert_s16_f32(
-                src_interleaved + 2 * n, dst_i + n, dst_q + n, complex_count - n);
+                src_interleaved + 2 * n, dst_i + n, dst_q + n, complex_count - n, scale);
         }
     }
 

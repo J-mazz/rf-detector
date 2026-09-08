@@ -1,150 +1,64 @@
-# rfdet — vehicular RF sensor for law-enforcement emitter fingerprints
+# Option 2: continuous spectral detector
 
-Target: 2014 WRX. Compute: Raspberry Pi 5 (capture + DSP) and a Jetson Orin
-(inference), Ethernet between them. Status: dataplane primitives (this
-revision) are built and tested; sensors and fusion are specified below and
-land in the order given in §6.
+Acquisition writes SC16 samples, DSP assembles continuous windows, and a separate sink consumes immutable pooled observation records. Project-owned capture/DSP storage and FFT tables are allocated before workers start. Drivers and the output runtime can allocate or copy internally.
 
-## 1. What is actually detectable, and with what
+## Scope
 
-A police vehicle is a bundle of persistent RF identifiers plus a few class
-signals. Sub-6 GHz SDR captures some of them; the rest are cheaper to take
-from purpose-built receivers. Pretending an SDR does all of it is how a
-project stalls.
+Mock and replay work without hardware. The optional SoapySDR C adapter configures RX channel 0, queries actual settings and native CS16 full scale, and defers stream setup/activation until start(). Caller-owned output buffers do not imply end-to-end zero-copy. Its boundary follows the [official SoapySDR C API](https://pothosware.github.io/SoapySDR/doxygen/latest/Device_8h.html).
 
-| Emitter | Band | Sensor | Identifier persistence |
-|---|---|---|---|
-| Police radar (X 10.525, K 24.125–24.150, Ka 33.4–36.0 GHz) | out of SDR reach | Valentine One Gen2 over BLE (ESP protocol, published; KESPL/ESPLibrary implement it). Reports band, frequency (MHz), direction, strength | frequency offset is a per-unit signature |
-| P25 mobile/portable transmit, 700 MHz narrowband | 799–805 MHz | SDR | class signal; control-channel metadata (unencrypted even when voice is encrypted) gives unit/talkgroup IDs later via OP25 |
-| P25 mobile transmit, 800 MHz (NPSPAC + interleaved pool) | 806–815 MHz | SDR | class signal, shared with utilities/transit/B-ILT |
-| FirstNet Band 14 uplink | 788–798 MHz | SDR | weak alone: AT&T consumer devices also use B14 |
-| In-car router hotspots (Cradlepoint, Sierra AirLink) | 2.4/5 GHz | Wi-Fi adapter in monitor mode (external, e.g. MT7921U) | BSSID persistent, OUI identifies vendor |
-| Body cams, Axon Signal triggers, radios, Ford SYNC | BLE 2.4 GHz | Pi 5 onboard BLE (BlueZ) or nRF52840 sniffer | OUI + stable MACs on most fleet gear; consumer gear randomizes |
-| TPMS | 315 / 433.92 MHz | SDR (rtl_433-class decoders) | 28/32-bit sensor IDs, unencrypted, four per vehicle — a persistent vehicle fingerprint once labeled |
+There is no police classifier, protocol decoder, radar/laser receiver, GPS join, identity database, feature tensor producer or Orin service in this revision. tensor_valid_hops is always zero. These software tests do not establish a stock WRX antenna's suitability. Receiver coverage, antenna matching and in-car interference need separate measurements.
 
-**SDR window decision.** One 30.72 MS/s capture centered at 800 MHz spans
-784.6–815.4 MHz and covers Band 14 UL, 700 MHz P25 mobile Tx and 806–815
-MHz mobile Tx simultaneously. That is the only window the SDR needs to sit
-on continuously; TPMS is a periodic hop to 315/433 MHz. `main.cpp` already
-carries this configuration.
+## Stream contract
 
-**Receiver.** int16 (SC16) interleaved intake, ≥30.72 MS/s, USB 3, bus
-powered: bladeRF 2.0 micro xA4 (47 MHz–6 GHz) is the fit; LimeSDR Mini 2.0
-works to 3.5 GHz; USRP B210 is the reference-grade option from the CSS
-project. HackRF is int8 and would need a second intake kernel. All go
-through SoapySDR, whose `readStream` writes into caller-owned buffers —
-the pinned capture slot — which is what `rf.acquire::SDRSource` mirrors.
+- Capacity bounds a read; only returned, fully written I,Q pairs are valid. SC16 conversion uses explicit sample_scale. Raw files are little-endian and contain whole pairs.
+- Metadata includes configuration, sequence, segment/config ID, segment-relative first sample, known lost samples and gap flags.
+- Host monotonic/wall timestamps record read completion. Valid hardware time identifies the first sample. Event hardware time is projected from a segment's first valid anchor and sample rate; host time is never substituted for it.
+- Discontinuities, configuration changes, unexpected sample positions or explicit gaps close events and reset STFT carry/calibration. The runnable pipeline holds configuration fixed; retune scheduling is absent.
+- Live overload drains into a dedicated discard buffer. Replay waits for capacity. Only actual returned samples increase discard counts.
+- Driver overflow/error loss is unknown and counted separately. Positive overflow payloads are conservatively discarded and counted by length. The next admitted frame starts a new segment with accumulated known loss and gap flags. Shutdown losses still appear in counters if no later frame exists.
 
-**GPS.** Every event carries wall time; position comes from a USB GNSS via
-gpsd and is joined at storage time. Location is the strongest prior the
-Bayesian layer gets (fixed K-band door openers, known speed-trap geometry).
+After normal draining, samples_processed equals samples_admitted, and samples_received equals samples_admitted plus samples_discarded. Unknown missing hardware samples are excluded from numeric sample totals. Malformed counts and repeated failures stop the host with nonzero status.
 
-## 2. Evidence model
+## Analysis and confidence
 
-Same discipline as the CSS detector: honest likelihood ratios, corroboration
-before alert, low base rate respected.
+Default periodic Hann STFT: N=8192, H=4096. A persistent circular buffer spans reads. First analysis follows N segment samples, then every H. Finish closes events and drops incomplete tails without zero padding.
 
-- **Strong**: K/Ka radar with credible frequency; P25 mobile Tx burst in
-  799–805; BLE/Wi-Fi OUI match to LE-specific vendors; any identifier already
-  in the learned fleet database.
-- **Moderate**: 806–815 mobile Tx; Cradlepoint/Sierra BSSIDs (ambulances,
-  utilities, transit carry them too); X band without corroboration.
-- **Weak**: Band 14 uplink activity; unknown TPMS IDs; unknown BLE.
+The precomputed radix-2 FFT is forward, unnormalized, and nonallocating during execution. Shifted bin k represents (k-N/2)*Fs/N. Per-bin power is abs(FFT(window*x))^2 / (N*sum(window^2)), so total spectral power is window-weighted mean complex sample power. Four bins form a default band. Band frequency averages bin centers; bandwidth is bin count times Fs/N. Hann leakage and tiling limit resolution.
 
-**Entity resolution turns weak class evidence into strong identity
-evidence.** Identifiers observed together inside a time/RSSI window resolve
-to one vehicle entity. A confirmation (radar hit + button press, or a visual
-tag) labels the whole bundle, so the TPMS IDs and BSSID of that patrol car
-become strong evidence on every later encounter, radar or not. That is the
-active-learning loop from the original design with the annotator being the
-driver, one button, in the moment.
+Power-of-two ring/shift indices use masks. Hann normalization is cached at initialization, and usable-band geometry/reference counts are rebuilt on segment configuration changes. A linear prefilter skips bands clearly below the relevant threshold; the original dB calculation and inclusive comparison remain in use near entry/release boundaries. Four-reference medians use bounded insertion sort.
 
-`p(y|x) = Σ_k p(y|x,E_k) p(E_k|D_t)` survives unchanged: experts are
-per-sensor classifiers, the regime posterior is the location/time prior.
+Usable bands exclude edges, DC and analog-bandwidth limits. Background is the median of up to four guarded neighboring block means, computed with prefix sums. This spatial estimator preserves sustained narrowband contrast without freezing an outdated temporal floor. Wide signals occupying references can suppress detection; this is not a calibrated CFAR detector.
 
-**Legal envelope (Oregon).** Radar detectors are lawful in private
-vehicles. Passive reception of non-encrypted radio, explicitly including
-police and public-safety systems, is exempt under 18 U.S.C. §2511(2)(g).
-Out of scope by design: decrypting P25 voice, any cellular content, any
-transmission.
+Eight valid windows warm calibration. Defaults use 12 dB start, 6 dB release and two unsupported windows to end. Zero/nonfinite/excessively clipped windows close events and mark confidence uncertain. Broad floor shifts over 10 dB restart warmup. Narrow bandwidths need enough usable reference bands. Internal health is uncalibrated/tracking/uncertain, not a probability.
 
-## 3. Dataplane invariants (enforced in code, tested)
+## Events
 
-1. Allocation only at startup; `PinnedRegion::map` is the only allocator.
-   Pools are transactional: usable iff `initialize()` returned `none`.
-2. Allocated capacity ≠ constructed objects ≠ valid samples. Storage is
-   `mmap` + `mlock` (not `MAP_LOCKED`), lifetime established with
-   `std::start_lifetime_as_array` (GCC 16), contents overwrite-only. Dataplane
-   records have no default member initializers (`OverwriteRecord` concept).
-3. `RLIMIT_MEMLOCK` is checked against the process-wide locked total before
-   mapping; the pipeline needs 11.8 MB and fails at startup with
-   `memlock_budget` on the default 8 MiB limit. `LimitMEMLOCK=64M` in the unit.
-4. Every pool has exactly one acquiring thread and one releasing thread
-   (`SPSCFreeList`: ring write, then release-store of the cursor). A stage
-   that cannot hand a slot downstream **keeps it** and overwrites it next
-   iteration. No stage releases what it acquired; held slots are reclaimed
-   by the main thread after join.
-5. Queues carry trivially-copyable handles ≤16 bytes only (`Handle`
-   concept); they never construct, move, or destroy.
-6. Shutdown is a chain of `*_done` flags release-stored after the producer's
-   final push; consumers drain with `drain_step`. `empty()` is never a
-   termination criterion. Test asserts `processed == captured` after stop.
-7. Partial reads are honored: the device's return count is the only
-   source of `valid_complex`.
-8. Timestamps are `clock_gettime(CLOCK_MONOTONIC)` nanoseconds plus a
-   `CLOCK_REALTIME` twin for GPS/log correlation.
-9. Detection thresholds are relative to a tracked noise floor (asymmetric,
-   frozen during bursts), never absolute energy.
-10. Kernels are bitwise-identical across backends (`-ffp-contract=off`,
-    unfused NEON, fixed 4-lane fold order). Verified NEON vs scalar under
-    qemu for every tail length 0..63 and full frames.
-11. Tensor layout is time-major `[hop][bin]`, model input `[1,1,Hops,Bins]`,
-    symmetric int8 with explicit scale/zero-point; bin ranges are half-open.
-12. No exceptions, no RTTI in the dataplane (`-fno-exceptions -fno-rtti`);
-    failures are counters (`StageState`), and `protocol_violations` must stay 0.
+Each active band has a stable ID with begin, periodic update and end records. Begin exposes sustained activity before it stops. Updates/end retain original start, latest supporting window end, and energy/background at peak excess. Adjacent bands are not merged.
 
-## 4. Toolchain topology
+End reason applies only to end phase: quiet, gap, invalid_input or finish. Sample positions include window support and overlap. Event publication time is separate from source metadata. Source hardware time stays unavailable for a segment whose initial anchor lacks it.
 
-- **Pi 5**: Fedora 44 aarch64 (Pi 5 images exist since March 2026; OS on
-  microSD only, NVMe/thermal support were still in progress at release — put
-  the event store on a USB SSD and verify thermal throttling before the car
-  install). GCC 16.1.1 (16.2 arrives with Fedora 45). `build.sh` with
-  `--march cortex-a76`. `import std;` via `--compile-std-module`.
-- **Orin**: JetPack 7.2 = Ubuntu 24.04, CUDA 13.2, TensorRT 10.16, GCC 13.
-  No C++26 modules there; the inference service is a separate build against
-  a versioned wire layout of `CandidateEvent`. Nothing in `rf.*` depends on
-  it. If the encoder stays small, ONNX Runtime on the Pi's CPU is a viable
-  first stop and the Orin becomes an optimization.
-- **Dev/CI**: GCC 14/15 build the identical sources through the header
-  fallback (`RF_IMPORT_STD` undefined); ThreadSanitizer on x86-64; NEON
-  parity on aarch64 via qemu-user.
-- `std::simd` (C++26, experimental in libstdc++ 16) is the candidate for the
-  portable middle tier between `GenericFallback` and `NeonBackend`; NEON
-  stays for the structure loads (`vld2`) it cannot express.
+The sink borrows an immutable record only for its callback; copy needed fields before returning. Bounded pool/queue overload can lose any phase, and dropped-record counts are explicit. There is no serialized wire ABI for the in-memory structures.
 
-## 5. Module graph (this revision)
+## Ownership and shutdown
 
-```
-rf.core      handles, clocks, OverwriteRecord/Handle concepts, error enum
-rf.memory    PinnedRegion, SPSCFreeList, FixedPool, ObjectPool, memlock budget
-rf.runtime   HandleQueue, StageState/Counter, drain_step, cpu_relax, pinning
-rf.signal    CaptureMetadata, Raw/PlanarIQBlock, SpectralCandidate, EventTensor, CandidateEvent
-rf.simd      GenericFallback → NeonBackend → DefaultSIMDBackend
-rf.dsp       NoiseTracker, EnergyDetector<Backend>
-rf.acquire   SDRSource (SoapySDR-shaped), MockSource
-rf.pipeline  acquisition → dsp → sink, retained-slot backpressure, drain shutdown
-```
+Default storage: 16 capture slots of 131072 complex samples, dedicated discard storage, two conversion slots with two float planes, and 64 event slots. Queues carry handles. Per-slot ownership rejects duplicate returns, but does not protect against generation-stale handles after slot reuse.
 
-## 6. Next revisions, in order
+Startup validates dimensions/limits, establishes object lifetimes, and rolls back every region on failure. Repeated initialization is rejected without changing live contents. Reset/reclaim require quiescent workers; source configuration is immutable during a run.
 
-1. `rf.acquire::SoapySource` (bladeRF/Lime/USRP), CS16, direct-to-slot reads.
-2. `rf.dsp` channelizer: STFT over the 785–815 window, per-channel energy
-   with the same tracker, emits `SpectralCandidate` with real bin ranges and
-   fills `EventTensor`; TPMS hop schedule.
-3. `rf.store`: append-only DuckDB tables (`observations`, `entities`,
-   `identifiers`, `labels`, `alerts`), GPS join, retention policy from the
-   original design (metadata → features → tensor → raw IQ).
-4. Sensor adapters: V1 Gen2 ESP/BLE, BlueZ BLE scanner, Wi-Fi monitor
-   capture, gpsd. Each emits into the same event stream via `EventSink`.
-5. Entity resolution + Bayesian fusion (`rf.probability`), the one-button
-   labeler, then the encoder/MoE on the Orin.
+Acquisition passes capture handles to DSP, which returns raw storage immediately after conversion. DSP borrows/returns scratch synchronously on one thread. DSP passes event handles to the sink. A producer retains a handle after failed enqueue, reusing it later. Main reclaims held handles after joins, preserving the single releasing-thread contract during operation.
+
+Producer-done flags follow the final push. Consumers drain before publishing done. Stop ends acquisition while admitted work drains through DSP and sink. Main joins workers, stops the source and reclaims held slots. Sink errors request stop and cause nonzero status. Callbacks and device reads must return for shutdown to finish. Mock pacing caps the samples and sleep to the read deadline; a timeout consumes no samples. Source stop remains after acquisition joins to avoid concurrent driver read/stop calls.
+
+Idle/capacity-wait backoff spins briefly, then requests a 50 microsecond sleep after 64 pauses. Queued work drains immediately when observed. This reduces idle CPU use at the cost of polling latency plus scheduler delay; it does not promise hard real-time delivery.
+
+## Operational health and output
+
+`rf.runtime::StageState` publishes successful capture and DSP progress times using host monotonic clocks. DSP publishes window/invalid/reset counters and detector health after each processed frame. `rf.health::Monitor` is owned by the control plane and reads only atomic state; it never calls observers on the live DSP object. Fields are approximate snapshots during execution, with final accounting after worker joins.
+
+The CLI polls status every 250 ms (configurable) and reports capture or pending-DSP staleness after 1000 ms (configurable). Sample loss, unknown gaps, event loss and invalid windows produce interval degradation flags. Cumulative counters survive recovery. No-data staleness is recoverable; it does not automatically terminate a receiver. Terminal failure takes precedence over stopped. Tracking means operational detector health, not a police classification or road-clear decision.
+
+`rf.output::CsvWriter` exclusively creates the CSV, checks the header, writes line-buffered complete records on the sink thread and checks close errors after joins. This bounds userspace buffering to a single record write, without claiming bounded filesystem, device-driver or arbitrary callback latency. Health reports use a separate stderr stream and remain observable when there are no RF candidates.
+
+## Remaining measurements
+
+The reference FFT has no demonstrated 30.72 MS/s Pi throughput. Run native target builds/tests, check scalar/NEON parity, then measure sustained admission, drop counts, CPU load, temperature and sink latency. Exercise real device disconnect, overflow and stop. Use labeled recordings to measure false alarms/misses before tuning thresholds or replacing the FFT backend. No field accuracy claim is made.

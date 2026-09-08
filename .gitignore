@@ -1,0 +1,55 @@
+# Native, CMake and verification output
+/build/
+/build-*/
+/cmake-build*/
+/.verify-*/
+gcm.cache/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+CTestTestfile.cmake
+/Testing/
+build.ninja
+rules.ninja
+.ninja_deps
+.ninja_log
+compile_commands.json
+*.o
+*.a
+*.so
+*.so.*
+*.gcm
+*.pcm
+*.gcda
+*.gcno
+*.profraw
+*.profdata
+
+# Python helper caches and local environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Local RF captures and CLI output; keep fixtures and benchmark JSON trackable
+/*.sc16
+/*.csv
+/*.log
+/captures/
+/recordings/
+/rfdet
+/rf-detector.tar.gz
+
+# Local credentials; sanitized templates may be committed
+.env
+.env.*
+!.env.example
+!.env.template
+
+# Editor and operating-system debris
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db

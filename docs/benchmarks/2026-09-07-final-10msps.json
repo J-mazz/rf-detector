@@ -1,0 +1,45 @@
+{
+  "scope": "paced mock, host only; elapsed includes draining",
+  "executable": "/home/jmazz/Projects/rf-detector/build-gcc16/rfdet",
+  "executable_sha256": "1fb158fe64395a2b760f25b4fb161b09e46d8902d4a47bf7f5128f1cf1b6259f",
+  "runs": [
+    {
+      "command": [
+        "/home/jmazz/Projects/rf-detector/build-gcc16/rfdet",
+        "--seconds",
+        "5.0",
+        "--no-lock",
+        "--sample-rate",
+        "10000000.0",
+        "--bandwidth",
+        "9000000.0"
+      ],
+      "repetition": 1,
+      "requested_rate_sps": 10000000.0,
+      "elapsed_seconds_including_drain": 5.028034434000801,
+      "requested_seconds": 5.0,
+      "received_sps_including_drain": 9978918.334510356,
+      "received_vs_requested_samples": 1.0034869,
+      "received": 50174345,
+      "admitted": 50174345,
+      "processed": 50174345,
+      "discarded": 0,
+      "unknown_gaps": 0,
+      "loss_fraction": 0.0,
+      "admitted_sps_including_drain": 9978918.334510356,
+      "processed_sps_including_drain": 9978918.334510356,
+      "windows": 12248,
+      "invalid_windows": 0,
+      "resets": 0,
+      "events": 330,
+      "consumed": 330,
+      "dropped_events": 0,
+      "cpu_seconds": 2.34497,
+      "exit_code": 0,
+      "protocol_violations": 0,
+      "fatal": 0,
+      "accounting_valid": true,
+      "zero_loss": true
+    }
+  ]
+}

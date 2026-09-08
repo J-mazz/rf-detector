@@ -17,16 +17,22 @@ CXX="${CXX:-g++}"
 OUT="build"
 TSAN=0
 MARCH=""
+SOAPY=0
 while [[ $# -gt 0 ]]; do
   case "$1" in
+    --soapy) SOAPY=1; shift ;;
     --tsan) TSAN=1; shift ;;
-    --out) OUT="$2"; shift 2 ;;
-    --march) MARCH="$2"; shift 2 ;;
+    --out) [[ $# -ge 2 ]] || { echo "--out needs a directory" >&2; exit 2; }; OUT="$2"; shift 2 ;;
+    --march) [[ $# -ge 2 ]] || { echo "--march needs a CPU/architecture" >&2; exit 2; }; MARCH="$2"; shift 2 ;;
     *) echo "unknown option: $1" >&2; exit 2 ;;
   esac
 done
 
 MAJOR="$("$CXX" -dumpfullversion -dumpversion | cut -d. -f1)"
+if [[ "$MAJOR" -lt 14 ]]; then
+  echo "Native module build requires GCC >=14; use scripts/verify_portable.py for GCC13 body verification." >&2
+  exit 2
+fi
 SRC="$(cd "$(dirname "$0")" && pwd)/src"
 mkdir -p "$OUT"
 cd "$OUT"
@@ -39,7 +45,18 @@ if [[ $TSAN -eq 1 ]]; then
 else
   COMMON+=(-O2 -g)
 fi
-[[ -n "$MARCH" ]] && COMMON+=("-mcpu=$MARCH")
+if [[ -n "$MARCH" ]]; then
+  TARGET="$("$CXX" -dumpmachine)"
+  case "$TARGET" in
+    aarch64*|arm*) COMMON+=("-mcpu=$MARCH") ;;
+    *) COMMON+=("-march=$MARCH") ;;
+  esac
+fi
+LIBS=()
+if [[ $SOAPY -eq 1 ]]; then
+  COMMON+=(-DRF_WITH_SOAPY=1)
+  LIBS+=(-lSoapySDR)
+fi
 
 STD_IMPORT=0
 if [[ "$MAJOR" -ge 16 ]]; then
@@ -52,7 +69,8 @@ else
   FLAGS=(-std=c++23 -fmodules-ts)
 fi
 
-MODULES=(core memory runtime signal simd dsp acquire pipeline)
+MODULES=(core memory signal runtime health output simd fft dsp acquire pipeline)
+[[ $SOAPY -eq 1 ]] && MODULES+=(soapy)
 OBJS=()
 
 STD_STEP=()
@@ -78,10 +96,18 @@ done
 link() {  # name source...
   local name="$1"; shift
   echo "  link $name"
-  "$CXX" "${FLAGS[@]}" "${COMMON[@]}" "$@" "${OBJS[@]}" -o "$name"
+  "$CXX" "${FLAGS[@]}" "${COMMON[@]}" "$@" "${OBJS[@]}" "${LIBS[@]}" -o "$name"
 }
 link rfdet "$SRC/main.cpp"
 link test_memory "$SRC/../tests/test_memory.cpp"
 link test_simd "$SRC/../tests/test_simd.cpp"
 link test_pipeline "$SRC/../tests/test_pipeline.cpp"
+link test_fft "$SRC/../tests/test_fft.cpp"
+link test_dsp "$SRC/../tests/test_dsp.cpp"
+link test_acquire "$SRC/../tests/test_acquire.cpp"
+link test_regression "$SRC/../tests/test_regression.cpp"
+link test_health "$SRC/../tests/test_health.cpp"
+if [[ $SOAPY -eq 1 ]]; then
+  link test_soapy "$SRC/../tests/test_soapy.cpp"
+fi
 echo "built in $OUT with $CXX $("$CXX" -dumpfullversion) (import std: $STD_IMPORT, tsan: $TSAN)"

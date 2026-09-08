@@ -8,11 +8,13 @@
 //     a stage that fails to hand a slot off KEEPS it (it never releases)
 module;
 #include <version>
+#include <new> // placement allocation declarations must precede named modules
 #ifndef RF_IMPORT_STD
 #include <atomic>
 #include <cstddef>
 #include <cstdint>
 #include <limits>
+#include <new>
 #include <span>
 #include <type_traits>
 #include <utility>
@@ -44,7 +46,8 @@ enum class MemoryError : std::uint8_t {
     mmap_failed,
     mlock_failed,
     memlock_budget,      // RLIMIT_MEMLOCK too small for the requested locked bytes
-    not_initialized
+    not_initialized,
+    already_initialized
 };
 
 [[nodiscard]] inline std::size_t page_size() noexcept {
@@ -65,16 +68,19 @@ enum class MemoryError : std::uint8_t {
 inline std::atomic<std::size_t> locked_bytes_total{0};
 
 // Establish an array of T in raw storage without running constructors.
-// C++23 P2590R2 (GCC 16 implements it). The fallback is the pre-C++23
-// idiom and is only compiled on toolchains that lack the library facility.
+// C++23 P2590R2 where supported. GCC 16's module reader rejects serialized
+// start_lifetime_as_array instantiations (reproduced with GCC 16.2.1), so
+// retain placement array new for that compiler's module builds as well.
 template <typename T>
     requires rf::core::OverwriteRecord<T>
 [[nodiscard]] inline T* establish_array(void* storage, std::size_t count) noexcept {
-#if defined(__cpp_lib_start_lifetime_as) && (__cpp_lib_start_lifetime_as >= 202207L)
+#if defined(__cpp_lib_start_lifetime_as) && (__cpp_lib_start_lifetime_as >= 202207L) && \
+    !(defined(__GNUC__) && __GNUC__ == 16 && defined(__cpp_modules))
     return std::start_lifetime_as_array<T>(storage, count);
 #else
-    (void)count;
-    return static_cast<T*>(storage);
+    // Non-allocating placement array new establishes lifetime; trivial default
+    // initialization leaves scalar storage untouched (no value initialization).
+    return ::new (storage) T[count];
 #endif
 }
 
@@ -121,7 +127,7 @@ public:
 
     [[nodiscard]] MemoryError map(std::size_t capacity,
                                   RegionConfig cfg = DefaultRegionConfig) noexcept {
-        unmap();
+        if (mapped()) return MemoryError::already_initialized;
         if (capacity == 0 || capacity > std::numeric_limits<std::size_t>::max() / sizeof(T))
             return MemoryError::invalid_size;
 
@@ -133,7 +139,7 @@ public:
         if (cfg.lock) {
             const std::size_t limit = memlock_limit_bytes();
             const std::size_t inuse = locked_bytes_total.load(std::memory_order_relaxed);
-            if (limit != std::numeric_limits<std::size_t>::max() && bytes > limit - inuse)
+            if (limit != std::numeric_limits<std::size_t>::max() && (inuse > limit || bytes > limit - inuse))
                 return MemoryError::memlock_budget;
         }
 
@@ -194,7 +200,10 @@ template <std::size_t Slots>
     requires (Slots >= 2) && (rf::core::is_power_of_two(Slots))
 class SPSCFreeList {
 public:
-    SPSCFreeList() noexcept {
+    SPSCFreeList() noexcept { reset_quiescent(); }
+    // Control plane only, before workers start or after all workers join.
+    void reset_quiescent() noexcept {
+        for (auto& v : owned_) v.store(false, std::memory_order_relaxed);
         for (std::size_t i = 0; i < Slots; ++i) ring_[i] = static_cast<SlotIndex>(i);
         head_.store(0, std::memory_order_relaxed);
         tail_.store(Slots, std::memory_order_release);
@@ -208,6 +217,9 @@ public:
         if (h == tail_.load(std::memory_order_acquire)) return InvalidSlot;   // exhausted
         const SlotIndex s = ring_[h & Mask];
         head_.store(h + 1, std::memory_order_release);
+        bool expected = false;
+        if (!owned_[s].compare_exchange_strong(expected, true, std::memory_order_relaxed))
+            return InvalidSlot;
         return s;
     }
 
@@ -217,6 +229,8 @@ public:
         if (s >= Slots) return false;
         const std::size_t t = tail_.load(std::memory_order_relaxed);
         if (t - head_.load(std::memory_order_acquire) >= Slots) return false;
+        bool expected = true;
+        if (!owned_[s].compare_exchange_strong(expected, false, std::memory_order_relaxed)) return false;
         ring_[t & Mask] = s;
         tail_.store(t + 1, std::memory_order_release);
         return true;
@@ -235,6 +249,9 @@ private:
     alignas(CacheLineSize) std::atomic<std::size_t> head_{0};   // acquirer's cursor
     alignas(CacheLineSize) std::atomic<std::size_t> tail_{0};   // releaser's cursor
     alignas(CacheLineSize) SlotIndex ring_[Slots];
+    // Ownership diagnostics catch immediate double release, not stale handles
+    // after a legitimate reacquisition (those require generation handles).
+    std::atomic<bool> owned_[Slots];
 };
 
 // FixedPool: `Slots` slots of `SlotCapacity` T each, in ONE contiguous pinned
@@ -254,12 +271,16 @@ public:
     FixedPool& operator=(const FixedPool&) = delete;
 
     [[nodiscard]] MemoryError initialize(RegionConfig cfg = DefaultRegionConfig) noexcept {
-        return region_.map(SlotCapacity * Slots, cfg);
+        if (ready()) return MemoryError::already_initialized;
+        const auto e = region_.map(SlotCapacity * Slots, cfg);
+        if (e == MemoryError::none) free_.reset_quiescent();
+        return e;
     }
+    void reset_quiescent() noexcept { region_.unmap(); free_.reset_quiescent(); }
     [[nodiscard]] bool ready() const noexcept { return region_.mapped(); }
 
-    [[nodiscard]] SlotIndex try_acquire() noexcept { return free_.try_acquire(); }
-    [[nodiscard]] bool      release(SlotIndex s) noexcept { return free_.release(s); }
+    [[nodiscard]] SlotIndex try_acquire() noexcept { return ready() ? free_.try_acquire() : InvalidSlot; }
+    [[nodiscard]] bool      release(SlotIndex s) noexcept { return ready() && free_.release(s); }
 
     // Precondition: s < Slots and the caller currently owns s.
     [[nodiscard]] T* slot(SlotIndex s) noexcept {
