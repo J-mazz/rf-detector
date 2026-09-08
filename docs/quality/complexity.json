@@ -1,0 +1,3726 @@
+{
+  "generated_at": "2026-09-08T11:18:48.433407+00:00",
+  "scope": "Working-tree src C++, unit-test C++, and Python scripts; generated builds and API shim headers excluded",
+  "module_handling": "Unmodified .cppm content with .cpp filename hint for both parsers",
+  "files": [
+    {
+      "path": "src/main.cpp",
+      "parser_name": "src/main.cpp",
+      "sha256": "97cec807e87765b7455b1f0692264bab3398f07b241614341ed218cca263de97"
+    },
+    {
+      "path": "src/rf/acquire.cppm",
+      "parser_name": "src/rf/acquire.cpp",
+      "sha256": "49e8c39773d77d0e82a9a33d1ef8e1f2028390b1aa477d57e8a6c6b2371156f5"
+    },
+    {
+      "path": "src/rf/core.cppm",
+      "parser_name": "src/rf/core.cpp",
+      "sha256": "b6a8d23dcf0e5156c5a64b2b06ab86e3992ba40f8c804e8756bbb709fd666b67"
+    },
+    {
+      "path": "src/rf/dsp.cppm",
+      "parser_name": "src/rf/dsp.cpp",
+      "sha256": "1082066d9a3b812c92b69be71d5f1f0670c9115b5c35cd8c758a7896cf194137"
+    },
+    {
+      "path": "src/rf/fft.cppm",
+      "parser_name": "src/rf/fft.cpp",
+      "sha256": "9e8a6a42d0d0f6bf37c1106fefb310594140c9dcaaa761b62418d05043490239"
+    },
+    {
+      "path": "src/rf/health.cppm",
+      "parser_name": "src/rf/health.cpp",
+      "sha256": "8f9331e35b78dcb87ada9f22fd8efedaa4b29f87894e75f53244eae27233bda1"
+    },
+    {
+      "path": "src/rf/memory.cppm",
+      "parser_name": "src/rf/memory.cpp",
+      "sha256": "b0fbda743641d145df1135bfd7ed7e53fcfd3e407eb76214820b77d2d8719273"
+    },
+    {
+      "path": "src/rf/output.cppm",
+      "parser_name": "src/rf/output.cpp",
+      "sha256": "cf32a5129f6449a90fdc6943a9da17b9286379d5e49c9e893c59515b24cb0b60"
+    },
+    {
+      "path": "src/rf/pipeline.cppm",
+      "parser_name": "src/rf/pipeline.cpp",
+      "sha256": "e6415a28e4bba609be68e9285f017f239a2030deca9cf67e0f28b7d0bc0560d3"
+    },
+    {
+      "path": "src/rf/runtime.cppm",
+      "parser_name": "src/rf/runtime.cpp",
+      "sha256": "ac88c15f78e8b00245a1d4d1bfe766d30db55b9a13af4f93aeb182744b683626"
+    },
+    {
+      "path": "src/rf/signal.cppm",
+      "parser_name": "src/rf/signal.cpp",
+      "sha256": "e3f9ef42fd18b586cb227b212b38e02f9bc239ec5aa3d4cbc31dea840a3268f3"
+    },
+    {
+      "path": "src/rf/simd.cppm",
+      "parser_name": "src/rf/simd.cpp",
+      "sha256": "59990131bd00ad552de52488cd1bcc51da6254a296a6e979e9d6355f31bd6010"
+    },
+    {
+      "path": "src/rf/soapy.cppm",
+      "parser_name": "src/rf/soapy.cpp",
+      "sha256": "ac449ea1ea09453edab256d85ef3e472e4e98773aead9aab85c038b70ddb4fa1"
+    },
+    {
+      "path": "tests/test_acquire.cpp",
+      "parser_name": "tests/test_acquire.cpp",
+      "sha256": "2ec8d0d7f731429c9e071eb560ef35ab02a90e6d5123e85ab44b48cf4e840479"
+    },
+    {
+      "path": "tests/test_dsp.cpp",
+      "parser_name": "tests/test_dsp.cpp",
+      "sha256": "433c5cb08fdd16220256a258a812e11ee7df7af7e161f9febab5188f68041765"
+    },
+    {
+      "path": "tests/test_dsp_boundaries.cpp",
+      "parser_name": "tests/test_dsp_boundaries.cpp",
+      "sha256": "ab440726f3ee3a40fa3f023327980626ae066d2be75aa88c58e45cc87c775fc0"
+    },
+    {
+      "path": "tests/test_fft.cpp",
+      "parser_name": "tests/test_fft.cpp",
+      "sha256": "6b3dc90307e058aaf9706e990ede2cb586b77849dc45cd7678ab9400568227a0"
+    },
+    {
+      "path": "tests/test_health.cpp",
+      "parser_name": "tests/test_health.cpp",
+      "sha256": "382cd52c0500dba968405ec1e55df43d3a47593df7bbb726347d2dbc2f3844c0"
+    },
+    {
+      "path": "tests/test_memory.cpp",
+      "parser_name": "tests/test_memory.cpp",
+      "sha256": "63089fb86190c814d7c1a6e63496cd8f790d8092bf28effcab506b7f7f4c8a3e"
+    },
+    {
+      "path": "tests/test_output.cpp",
+      "parser_name": "tests/test_output.cpp",
+      "sha256": "90ba5dd0fd9fb257bf6ea2abf59058543af6ea43c11acffc3f15b6460c780b8d"
+    },
+    {
+      "path": "tests/test_pipeline.cpp",
+      "parser_name": "tests/test_pipeline.cpp",
+      "sha256": "7a7758b069e6c5c2f900e9ff5554e76cb41431c084cc5c3e974366bbf6a19aa1"
+    },
+    {
+      "path": "tests/test_regression.cpp",
+      "parser_name": "tests/test_regression.cpp",
+      "sha256": "b56ef56e9f651f425f694ea637b50155fa19425e81ac7d56ed7ee1623d12fbd4"
+    },
+    {
+      "path": "tests/test_runtime.cpp",
+      "parser_name": "tests/test_runtime.cpp",
+      "sha256": "30e7dcc1b207a3591d09d35d942a4c95ee4e99b0980ae6db6f47df52452eaedb"
+    },
+    {
+      "path": "tests/test_simd.cpp",
+      "parser_name": "tests/test_simd.cpp",
+      "sha256": "2e74da403392c11788f9e211318cd3d1d52b4990d57e00003888a9b6ce025547"
+    },
+    {
+      "path": "tests/test_soapy.cpp",
+      "parser_name": "tests/test_soapy.cpp",
+      "sha256": "4ea0440ab49a77bc579ea403ebdb59672fcb228635215c56f4220a46fe0521f9"
+    },
+    {
+      "path": "scripts/assess_complexity.py",
+      "parser_name": "scripts/assess_complexity.py",
+      "sha256": "cdfbbe47a710ef3b5e8475961880505c87dfae3364f73787b4ea3b77227acb7d"
+    },
+    {
+      "path": "scripts/benchmark_runtime.py",
+      "parser_name": "scripts/benchmark_runtime.py",
+      "sha256": "957ac74b86d14046f8fb58645816b72083885301d97aa2552ab3ef6280d63bf3"
+    },
+    {
+      "path": "scripts/report_coverage.py",
+      "parser_name": "scripts/report_coverage.py",
+      "sha256": "9f0149db4f92b9fd770d9aebf08fe44d8afd0db31eb45284355bd5f64a2b9ad9"
+    },
+    {
+      "path": "scripts/verify_cli.py",
+      "parser_name": "scripts/verify_cli.py",
+      "sha256": "4e2261a5bcd89702cef51d8b33646652e80f1654f590f282dd08feae9a61da09"
+    },
+    {
+      "path": "scripts/verify_observability.py",
+      "parser_name": "scripts/verify_observability.py",
+      "sha256": "2ce0aff79fb3b238f1fece62d315a9516f7231d8a45271d96360b3b646e70c47"
+    },
+    {
+      "path": "scripts/verify_portable.py",
+      "parser_name": "scripts/verify_portable.py",
+      "sha256": "46bf3472f5dc3985d9d192a4ce1f819ac03fe297fbfee46adf6c65499e698b87"
+    },
+    {
+      "path": "scripts/verify_replay.py",
+      "parser_name": "scripts/verify_replay.py",
+      "sha256": "e0f8281c52af998fe4bf62469c8cf26f0fb3d9723cab50f048fc5b0cab213bef"
+    },
+    {
+      "path": "scripts/verify_runtime.py",
+      "parser_name": "scripts/verify_runtime.py",
+      "sha256": "056915cb04c39d9848f219515b0ba990677b5ee86f33e5c633fd10930c8d0170"
+    },
+    {
+      "path": "scripts/verify_soapy_stub.py",
+      "parser_name": "scripts/verify_soapy_stub.py",
+      "sha256": "fd198e997063fb103c22fac91a497b25204f496f3601d2ef9589b4e09018f94c"
+    }
+  ],
+  "codescene": {
+    "status": "complete",
+    "version": {
+      "exit_code": 0,
+      "stdout": "cs version 1.0.40 (8a7257420cc2dec1cf6ff7866db4da8c58f67602)\nBuilt on Linux amd64 at 2026-09-03\n",
+      "stderr": ""
+    },
+    "reviews": [
+      {
+        "exit_code": 0,
+        "stderr": "",
+        "path": "src/main.cpp",
+        "review": {
+          "score": 7.0,
+          "review": [
+            {
+              "category": "Bumpy Road Ahead",
+              "functions": [
+                {
+                  "title": "main",
+                  "details": "bumps = 11",
+                  "start-line": 58,
+                  "end-line": 167,
+                  "url": ""
+                }
+              ],
+              "description": "A Bumpy Road is a function that contains multiple chunks of nested conditional logic inside the same function. The deeper the nesting and the more bumps, the lower the code health.\n\nA bumpy code road represents a lack of encapsulation which becomes an obstacle to comprehension. In imperative languages there\u2019s also an increased risk for feature entanglement, which leads to complex state management. CodeScene considers the following rules for the code health impact: 1) The deeper the nested conditional logic of each bump, the higher the tax on our working memory. 2) The more bumps inside a function, the more expensive it is to refactor as each bump represents a missing abstraction. 3) The larger each bump \u2013 that is, the more lines of code it spans \u2013 the harder it is to build up a mental model of the function. The nesting depth for what is considered a bump is 2 levels of conditionals.",
+              "indication": 3
+            },
+            {
+              "category": "Overall Code Complexity",
+              "description": "Overall Code Complexity is measured by the mean cyclomatic complexity across all functions in the file. The lower the number, the better.\n\nCyclomatic complexity is a function level metric that measures the number of logical branches (if-else, loops, etc.). Cyclomatic complexity is a rough complexity measure, but useful as a way of estimating the minimum number of unit tests you would need. As such, prefer functions with low cyclomatic complexity (2-3 branches).",
+              "indication": 2
+            },
+            {
+              "category": "Complex Method",
+              "functions": [
+                {
+                  "title": "main",
+                  "details": "cc = 60",
+                  "start-line": 58,
+                  "end-line": 167,
+                  "url": ""
+                }
+              ],
+              "description": "A Complex Method has a high cyclomatic complexity. The recommended threshold for the C++ language is a cyclomatic complexity lower than 9.\n\nSeverity: Brain Method - Complex Method - Long Method.",
+              "indication": 2
+            },
+            {
+              "category": "Complex Conditional",
+              "functions": [
+                {
+                  "title": "main:76",
+                  "details": "2 complex conditional expressions",
+                  "start-line": 76,
+                  "end-line": 76,
+                  "url": ""
+                },
+                {
+                  "title": "main:86",
+                  "details": "2 complex conditional expressions",
+                  "start-line": 86,
+                  "end-line": 86,
+                  "url": ""
+                },
+                {
+                  "title": "main:87",
+                  "details": "2 complex conditional expressions",
+                  "start-line": 87,
+                  "end-line": 87,
+                  "url": ""
+                },
+                {
+                  "title": "main:94",
+                  "details": "2 complex conditional expressions",
+                  "start-line": 94,
+                  "end-line": 94,
+                  "url": ""
+                }
+              ],
+              "description": "A complex conditional is an expression inside a branch such as an <code>if</code>-statmeent which consists of multiple, logical operations. Example: <code>if (x.started() && y.running())</code>.Complex conditionals make the code even harder to read, and contribute to the Complex Method code smell. Encapsulate them.",
+              "indication": 2
+            }
+          ]
+        }
+      },
+      {
+        "exit_code": 0,
+        "stderr": "",
+        "path": "src/rf/acquire.cppm",
+        "review": {
+          "score": 9.66,
+          "review": [
+            {
+              "category": "Complex Method",
+              "functions": [
+                {
+                  "title": "valid_config",
+                  "details": "cc = 12",
+                  "start-line": 37,
+                  "end-line": 42,
+                  "url": ""
+                }
+              ],
+              "description": "A Complex Method has a high cyclomatic complexity. The recommended threshold for the C++ language is a cyclomatic complexity lower than 9.\n\nSeverity: Brain Method - Complex Method - Long Method.",
+              "indication": 2
+            }
+          ]
+        }
+      },
+      {
+        "exit_code": 0,
+        "stderr": "",
+        "path": "src/rf/core.cppm",
+        "review": {
+          "score": 10.0,
+          "review": []
+        }
+      },
+      {
+        "exit_code": 0,
+        "stderr": "",
+        "path": "src/rf/dsp.cppm",
+        "review": {
+          "score": 4.05,
+          "review": [
+            {
+              "category": "Bumpy Road Ahead",
+              "functions": [
+                {
+                  "title": "analyze",
+                  "details": "bumps = 6",
+                  "start-line": 170,
+                  "end-line": 236,
+                  "url": ""
+                }
+              ],
+              "description": "A Bumpy Road is a function that contains multiple chunks of nested conditional logic inside the same function. The deeper the nesting and the more bumps, the lower the code health.\n\nA bumpy code road represents a lack of encapsulation which becomes an obstacle to comprehension. In imperative languages there\u2019s also an increased risk for feature entanglement, which leads to complex state management. CodeScene considers the following rules for the code health impact: 1) The deeper the nested conditional logic of each bump, the higher the tax on our working memory. 2) The more bumps inside a function, the more expensive it is to refactor as each bump represents a missing abstraction. 3) The larger each bump \u2013 that is, the more lines of code it spans \u2013 the harder it is to build up a mental model of the function. The nesting depth for what is considered a bump is 2 levels of conditionals.",
+              "indication": 3
+            },
+            {
+              "category": "Overall Code Complexity",
+              "description": "Overall Code Complexity is measured by the mean cyclomatic complexity across all functions in the file. The lower the number, the better.\n\nCyclomatic complexity is a function level metric that measures the number of logical branches (if-else, loops, etc.). Cyclomatic complexity is a rough complexity measure, but useful as a way of estimating the minimum number of unit tests you would need. As such, prefer functions with low cyclomatic complexity (2-3 branches).",
+              "indication": 2
+            },
+            {
+              "category": "Complex Method",
+              "functions": [
+                {
+                  "title": "initialize",
+                  "details": "cc = 42",
+                  "start-line": 43,
+                  "end-line": 79,
+                  "url": ""
+                },
+                {
+                  "title": "analyze",
+                  "details": "cc = 41",
+                  "start-line": 170,
+                  "end-line": 236,
+                  "url": ""
+                },
+                {
+                  "title": "feed",
+                  "details": "cc = 29",
+                  "start-line": 86,
+                  "end-line": 109,
+                  "url": ""
+                },
+                {
+                  "title": "configure_segment",
+                  "details": "cc = 11",
+                  "start-line": 127,
+                  "end-line": 141,
+                  "url": ""
+                }
+              ],
+              "description": "A Complex Method has a high cyclomatic complexity. The recommended threshold for the C++ language is a cyclomatic complexity lower than 9.\n\nSeverity: Brain Method - Complex Method - Long Method.",
+              "indication": 2
+            },
+            {
+              "category": "Complex Conditional",
+              "functions": [
+                {
+                  "title": "initialize:47",
+                  "details": "28 complex conditional expressions",
+                  "start-line": 47,
+                  "end-line": 56,
+                  "url": ""
+                },
+                {
+                  "title": "feed:87",
+                  "details": "14 complex conditional expressions",
+                  "start-line": 87,
+                  "end-line": 91,
+                  "url": ""
+                },
+                {
+                  "title": "analyze:207",
+                  "details": "2 complex conditional expressions",
+                  "start-line": 207,
+                  "end-line": 207,
+                  "url": ""
+                },
+                {
+                  "title": "analyze:219",
+                  "details": "2 complex conditional expressions",
+                  "start-line": 219,
+                  "end-line": 219,
+                  "url": ""
+                }
+              ],
+              "description": "A complex conditional is an expression inside a branch such as an <code>if</code>-statmeent which consists of multiple, logical operations. Example: <code>if (x.started() && y.running())</code>.Complex conditionals make the code even harder to read, and contribute to the Complex Method code smell. Encapsulate them.",
+              "indication": 2
+            },
+            {
+              "category": "Excess Number of Function Arguments",
+              "functions": [
+                {
+                  "title": "publish",
+                  "details": "Arguments = 5",
+                  "start-line": 142,
+                  "end-line": 158,
+                  "url": ""
+                }
+              ],
+              "description": "Functions with many arguments indicate either a) low cohesion where the function has too many responsibilities, or b) a missing abstraction that encapsulates those arguments.\n\nThe threshold for the C++ language is 4 function arguments.",
+              "indication": 2
+            }
+          ]
+        }
+      },
+      {
+        "exit_code": 0,
+        "stderr": "",
+        "path": "src/rf/fft.cppm",
+        "review": {
+          "score": 9.24,
+          "review": [
+            {
+              "category": "Bumpy Road Ahead",
+              "functions": [
+                {
+                  "title": "execute",
+                  "details": "bumps = 2",
+                  "start-line": 79,
+                  "end-line": 110,
+                  "url": ""
+                }
+              ],
+              "description": "A Bumpy Road is a function that contains multiple chunks of nested conditional logic inside the same function. The deeper the nesting and the more bumps, the lower the code health.\n\nA bumpy code road represents a lack of encapsulation which becomes an obstacle to comprehension. In imperative languages there\u2019s also an increased risk for feature entanglement, which leads to complex state management. CodeScene considers the following rules for the code health impact: 1) The deeper the nested conditional logic of each bump, the higher the tax on our working memory. 2) The more bumps inside a function, the more expensive it is to refactor as each bump represents a missing abstraction. 3) The larger each bump \u2013 that is, the more lines of code it spans \u2013 the harder it is to build up a mental model of the function. The nesting depth for what is considered a bump is 2 levels of conditionals.",
+              "indication": 3
+            },
+            {
+              "category": "Complex Method",
+              "functions": [
+                {
+                  "title": "initialize",
+                  "details": "cc = 11",
+                  "start-line": 33,
+                  "end-line": 71,
+                  "url": ""
+                }
+              ],
+              "description": "A Complex Method has a high cyclomatic complexity. The recommended threshold for the C++ language is a cyclomatic complexity lower than 9.\n\nSeverity: Brain Method - Complex Method - Long Method.",
+              "indication": 2
+            },
+            {
+              "category": "Complex Conditional",
+              "functions": [
+                {
+                  "title": "initialize:39",
+                  "details": "2 complex conditional expressions",
+                  "start-line": 39,
+                  "end-line": 39,
+                  "url": ""
+                }
+              ],
+              "description": "A complex conditional is an expression inside a branch such as an <code>if</code>-statmeent which consists of multiple, logical operations. Example: <code>if (x.started() && y.running())</code>.Complex conditionals make the code even harder to read, and contribute to the Complex Method code smell. Encapsulate them.",
+              "indication": 2
+            }
+          ]
+        }
+      },
+      {
+        "exit_code": 0,
+        "stderr": "",
+        "path": "src/rf/health.cppm",
+        "review": {
+          "score": 9.13,
+          "review": [
+            {
+              "category": "Complex Method",
+              "functions": [
+                {
+                  "title": "poll",
+                  "details": "cc = 23",
+                  "start-line": 49,
+                  "end-line": 103,
+                  "url": ""
+                },
+                {
+                  "title": "name",
+                  "details": "cc = 9",
+                  "start-line": 19,
+                  "end-line": 31,
+                  "url": ""
+                }
+              ],
+              "description": "A Complex Method has a high cyclomatic complexity. The recommended threshold for the C++ language is a cyclomatic complexity lower than 9.\n\nSeverity: Brain Method - Complex Method - Long Method.",
+              "indication": 2
+            },
+            {
+              "category": "Complex Conditional",
+              "functions": [
+                {
+                  "title": "poll:68",
+                  "details": "2 complex conditional expressions",
+                  "start-line": 68,
+                  "end-line": 68,
+                  "url": ""
+                }
+              ],
+              "description": "A complex conditional is an expression inside a branch such as an <code>if</code>-statmeent which consists of multiple, logical operations. Example: <code>if (x.started() && y.running())</code>.Complex conditionals make the code even harder to read, and contribute to the Complex Method code smell. Encapsulate them.",
+              "indication": 2
+            }
+          ]
+        }
+      },
+      {
+        "exit_code": 0,
+        "stderr": "",
+        "path": "src/rf/memory.cppm",
+        "review": {
+          "score": 9.24,
+          "review": [
+            {
+              "category": "Bumpy Road Ahead",
+              "functions": [
+                {
+                  "title": "map",
+                  "details": "bumps = 2",
+                  "start-line": 128,
+                  "end-line": 170,
+                  "url": ""
+                }
+              ],
+              "description": "A Bumpy Road is a function that contains multiple chunks of nested conditional logic inside the same function. The deeper the nesting and the more bumps, the lower the code health.\n\nA bumpy code road represents a lack of encapsulation which becomes an obstacle to comprehension. In imperative languages there\u2019s also an increased risk for feature entanglement, which leads to complex state management. CodeScene considers the following rules for the code health impact: 1) The deeper the nested conditional logic of each bump, the higher the tax on our working memory. 2) The more bumps inside a function, the more expensive it is to refactor as each bump represents a missing abstraction. 3) The larger each bump \u2013 that is, the more lines of code it spans \u2013 the harder it is to build up a mental model of the function. The nesting depth for what is considered a bump is 2 levels of conditionals.",
+              "indication": 3
+            },
+            {
+              "category": "Complex Method",
+              "functions": [
+                {
+                  "title": "map",
+                  "details": "cc = 15",
+                  "start-line": 128,
+                  "end-line": 170,
+                  "url": ""
+                }
+              ],
+              "description": "A Complex Method has a high cyclomatic complexity. The recommended threshold for the C++ language is a cyclomatic complexity lower than 9.\n\nSeverity: Brain Method - Complex Method - Long Method.",
+              "indication": 2
+            },
+            {
+              "category": "Complex Conditional",
+              "functions": [
+                {
+                  "title": "map:142",
+                  "details": "2 complex conditional expressions",
+                  "start-line": 142,
+                  "end-line": 142,
+                  "url": ""
+                }
+              ],
+              "description": "A complex conditional is an expression inside a branch such as an <code>if</code>-statmeent which consists of multiple, logical operations. Example: <code>if (x.started() && y.running())</code>.Complex conditionals make the code even harder to read, and contribute to the Complex Method code smell. Encapsulate them.",
+              "indication": 2
+            }
+          ]
+        }
+      },
+      {
+        "exit_code": 0,
+        "stderr": "",
+        "path": "src/rf/output.cppm",
+        "review": {
+          "score": 10.0,
+          "review": []
+        }
+      },
+      {
+        "exit_code": 0,
+        "stderr": "",
+        "path": "src/rf/pipeline.cppm",
+        "review": {
+          "score": 7.78,
+          "review": [
+            {
+              "category": "Bumpy Road Ahead",
+              "functions": [
+                {
+                  "title": "run_acquisition",
+                  "details": "bumps = 4",
+                  "start-line": 69,
+                  "end-line": 121,
+                  "url": ""
+                },
+                {
+                  "title": "run_dsp",
+                  "details": "bumps = 2",
+                  "start-line": 122,
+                  "end-line": 145,
+                  "url": ""
+                },
+                {
+                  "title": "reclaim_held_slots",
+                  "details": "bumps = 2",
+                  "start-line": 161,
+                  "end-line": 164,
+                  "url": ""
+                }
+              ],
+              "description": "A Bumpy Road is a function that contains multiple chunks of nested conditional logic inside the same function. The deeper the nesting and the more bumps, the lower the code health.\n\nA bumpy code road represents a lack of encapsulation which becomes an obstacle to comprehension. In imperative languages there\u2019s also an increased risk for feature entanglement, which leads to complex state management. CodeScene considers the following rules for the code health impact: 1) The deeper the nested conditional logic of each bump, the higher the tax on our working memory. 2) The more bumps inside a function, the more expensive it is to refactor as each bump represents a missing abstraction. 3) The larger each bump \u2013 that is, the more lines of code it spans \u2013 the harder it is to build up a mental model of the function. The nesting depth for what is considered a bump is 2 levels of conditionals.",
+              "indication": 3
+            },
+            {
+              "category": "Overall Code Complexity",
+              "description": "Overall Code Complexity is measured by the mean cyclomatic complexity across all functions in the file. The lower the number, the better.\n\nCyclomatic complexity is a function level metric that measures the number of logical branches (if-else, loops, etc.). Cyclomatic complexity is a rough complexity measure, but useful as a way of estimating the minimum number of unit tests you would need. As such, prefer functions with low cyclomatic complexity (2-3 branches).",
+              "indication": 2
+            },
+            {
+              "category": "Complex Method",
+              "functions": [
+                {
+                  "title": "run_acquisition",
+                  "details": "cc = 27",
+                  "start-line": 69,
+                  "end-line": 121,
+                  "url": ""
+                },
+                {
+                  "title": "run_dsp",
+                  "details": "cc = 12",
+                  "start-line": 122,
+                  "end-line": 145,
+                  "url": ""
+                },
+                {
+                  "title": "initialize",
+                  "details": "cc = 10",
+                  "start-line": 57,
+                  "end-line": 68,
+                  "url": ""
+                }
+              ],
+              "description": "A Complex Method has a high cyclomatic complexity. The recommended threshold for the C++ language is a cyclomatic complexity lower than 9.\n\nSeverity: Brain Method - Complex Method - Long Method.",
+              "indication": 2
+            },
+            {
+              "category": "Complex Conditional",
+              "functions": [
+                {
+                  "title": "initialize:60",
+                  "details": "2 complex conditional expressions",
+                  "start-line": 60,
+                  "end-line": 60,
+                  "url": ""
+                }
+              ],
+              "description": "A complex conditional is an expression inside a branch such as an <code>if</code>-statmeent which consists of multiple, logical operations. Example: <code>if (x.started() && y.running())</code>.Complex conditionals make the code even harder to read, and contribute to the Complex Method code smell. Encapsulate them.",
+              "indication": 2
+            }
+          ]
+        }
+      },
+      {
+        "exit_code": 0,
+        "stderr": "",
+        "path": "src/rf/runtime.cppm",
+        "review": {
+          "score": 10.0,
+          "review": []
+        }
+      },
+      {
+        "exit_code": 0,
+        "stderr": "",
+        "path": "src/rf/signal.cppm",
+        "review": {
+          "score": 10.0,
+          "review": []
+        }
+      },
+      {
+        "exit_code": 0,
+        "stderr": "",
+        "path": "src/rf/simd.cppm",
+        "review": {
+          "score": 9.68,
+          "review": [
+            {
+              "category": "Excess Number of Function Arguments",
+              "functions": [
+                {
+                  "title": "deinterleave_and_convert_s16_f32",
+                  "details": "Arguments = 5",
+                  "start-line": 41,
+                  "end-line": 51,
+                  "url": ""
+                },
+                {
+                  "title": "deinterleave_and_convert_s16_f32",
+                  "details": "Arguments = 5",
+                  "start-line": 88,
+                  "end-line": 111,
+                  "url": ""
+                }
+              ],
+              "description": "Functions with many arguments indicate either a) low cohesion where the function has too many responsibilities, or b) a missing abstraction that encapsulates those arguments.\n\nThe threshold for the C++ language is 4 function arguments.",
+              "indication": 2
+            }
+          ]
+        }
+      },
+      {
+        "exit_code": 0,
+        "stderr": "",
+        "path": "src/rf/soapy.cppm",
+        "review": {
+          "score": 10.0,
+          "review": []
+        }
+      },
+      {
+        "exit_code": 0,
+        "stderr": "",
+        "path": "tests/test_acquire.cpp",
+        "review": {
+          "score": 8.67,
+          "review": [
+            {
+              "category": "Complex Method",
+              "functions": [
+                {
+                  "title": "main",
+                  "details": "cc = 21",
+                  "start-line": 99,
+                  "end-line": 142,
+                  "url": ""
+                },
+                {
+                  "title": "replay_boundaries",
+                  "details": "cc = 18",
+                  "start-line": 67,
+                  "end-line": 98,
+                  "url": ""
+                },
+                {
+                  "title": "configuration_and_lifecycle",
+                  "details": "cc = 11",
+                  "start-line": 27,
+                  "end-line": 65,
+                  "url": ""
+                }
+              ],
+              "description": "A Complex Method has a high cyclomatic complexity. The recommended threshold for the C++ language is a cyclomatic complexity lower than 9.\n\nSeverity: Brain Method - Complex Method - Long Method.",
+              "indication": 2
+            }
+          ]
+        }
+      },
+      {
+        "exit_code": 0,
+        "stderr": "",
+        "path": "tests/test_dsp.cpp",
+        "review": {
+          "score": 8.8,
+          "review": [
+            {
+              "category": "Bumpy Road Ahead",
+              "functions": [
+                {
+                  "title": "main",
+                  "details": "bumps = 4",
+                  "start-line": 55,
+                  "end-line": 199,
+                  "url": ""
+                }
+              ],
+              "description": "A Bumpy Road is a function that contains multiple chunks of nested conditional logic inside the same function. The deeper the nesting and the more bumps, the lower the code health.\n\nA bumpy code road represents a lack of encapsulation which becomes an obstacle to comprehension. In imperative languages there\u2019s also an increased risk for feature entanglement, which leads to complex state management. CodeScene considers the following rules for the code health impact: 1) The deeper the nested conditional logic of each bump, the higher the tax on our working memory. 2) The more bumps inside a function, the more expensive it is to refactor as each bump represents a missing abstraction. 3) The larger each bump \u2013 that is, the more lines of code it spans \u2013 the harder it is to build up a mental model of the function. The nesting depth for what is considered a bump is 2 levels of conditionals.",
+              "indication": 3
+            },
+            {
+              "category": "Complex Method",
+              "functions": [
+                {
+                  "title": "main",
+                  "details": "cc = 30",
+                  "start-line": 55,
+                  "end-line": 199,
+                  "url": ""
+                }
+              ],
+              "description": "A Complex Method has a high cyclomatic complexity. The recommended threshold for the C++ language is a cyclomatic complexity lower than 9.\n\nSeverity: Brain Method - Complex Method - Long Method.",
+              "indication": 2
+            },
+            {
+              "category": "Complex Conditional",
+              "functions": [
+                {
+                  "title": "main:124",
+                  "details": "2 complex conditional expressions",
+                  "start-line": 124,
+                  "end-line": 124,
+                  "url": ""
+                }
+              ],
+              "description": "A complex conditional is an expression inside a branch such as an <code>if</code>-statmeent which consists of multiple, logical operations. Example: <code>if (x.started() && y.running())</code>.Complex conditionals make the code even harder to read, and contribute to the Complex Method code smell. Encapsulate them.",
+              "indication": 2
+            }
+          ]
+        }
+      },
+      {
+        "exit_code": 0,
+        "stderr": "",
+        "path": "tests/test_dsp_boundaries.cpp",
+        "review": {
+          "score": 8.79,
+          "review": [
+            {
+              "category": "Overall Code Complexity",
+              "description": "Overall Code Complexity is measured by the mean cyclomatic complexity across all functions in the file. The lower the number, the better.\n\nCyclomatic complexity is a function level metric that measures the number of logical branches (if-else, loops, etc.). Cyclomatic complexity is a rough complexity measure, but useful as a way of estimating the minimum number of unit tests you would need. As such, prefer functions with low cyclomatic complexity (2-3 branches).",
+              "indication": 2
+            },
+            {
+              "category": "Complex Method",
+              "functions": [
+                {
+                  "title": "continuity_and_cache",
+                  "details": "cc = 12",
+                  "start-line": 140,
+                  "end-line": 179,
+                  "url": ""
+                },
+                {
+                  "title": "invalid_samples_and_time",
+                  "details": "cc = 11",
+                  "start-line": 181,
+                  "end-line": 203,
+                  "url": ""
+                }
+              ],
+              "description": "A Complex Method has a high cyclomatic complexity. The recommended threshold for the C++ language is a cyclomatic complexity lower than 9.\n\nSeverity: Brain Method - Complex Method - Long Method.",
+              "indication": 2
+            }
+          ]
+        }
+      },
+      {
+        "exit_code": 0,
+        "stderr": "",
+        "path": "tests/test_fft.cpp",
+        "review": {
+          "score": 10.0,
+          "review": []
+        }
+      },
+      {
+        "exit_code": 0,
+        "stderr": "",
+        "path": "tests/test_health.cpp",
+        "review": {
+          "score": 9.34,
+          "review": [
+            {
+              "category": "Complex Method",
+              "functions": [
+                {
+                  "title": "main",
+                  "details": "cc = 24",
+                  "start-line": 15,
+                  "end-line": 106,
+                  "url": ""
+                }
+              ],
+              "description": "A Complex Method has a high cyclomatic complexity. The recommended threshold for the C++ language is a cyclomatic complexity lower than 9.\n\nSeverity: Brain Method - Complex Method - Long Method.",
+              "indication": 2
+            }
+          ]
+        }
+      },
+      {
+        "exit_code": 0,
+        "stderr": "",
+        "path": "tests/test_memory.cpp",
+        "review": {
+          "score": 8.96,
+          "review": [
+            {
+              "category": "Bumpy Road Ahead",
+              "functions": [
+                {
+                  "title": "test_cross_thread_stress",
+                  "details": "bumps = 2",
+                  "start-line": 143,
+                  "end-line": 197,
+                  "url": ""
+                }
+              ],
+              "description": "A Bumpy Road is a function that contains multiple chunks of nested conditional logic inside the same function. The deeper the nesting and the more bumps, the lower the code health.\n\nA bumpy code road represents a lack of encapsulation which becomes an obstacle to comprehension. In imperative languages there\u2019s also an increased risk for feature entanglement, which leads to complex state management. CodeScene considers the following rules for the code health impact: 1) The deeper the nested conditional logic of each bump, the higher the tax on our working memory. 2) The more bumps inside a function, the more expensive it is to refactor as each bump represents a missing abstraction. 3) The larger each bump \u2013 that is, the more lines of code it spans \u2013 the harder it is to build up a mental model of the function. The nesting depth for what is considered a bump is 2 levels of conditionals.",
+              "indication": 3
+            },
+            {
+              "category": "Complex Method",
+              "functions": [
+                {
+                  "title": "test_region_and_pool_boundaries",
+                  "details": "cc = 18",
+                  "start-line": 84,
+                  "end-line": 124,
+                  "url": ""
+                },
+                {
+                  "title": "test_cross_thread_stress",
+                  "details": "cc = 15",
+                  "start-line": 143,
+                  "end-line": 197,
+                  "url": ""
+                }
+              ],
+              "description": "A Complex Method has a high cyclomatic complexity. The recommended threshold for the C++ language is a cyclomatic complexity lower than 9.\n\nSeverity: Brain Method - Complex Method - Long Method.",
+              "indication": 2
+            }
+          ]
+        }
+      },
+      {
+        "exit_code": 0,
+        "stderr": "",
+        "path": "tests/test_output.cpp",
+        "review": {
+          "score": 9.24,
+          "review": [
+            {
+              "category": "Complex Method",
+              "functions": [
+                {
+                  "title": "main",
+                  "details": "cc = 10",
+                  "start-line": 47,
+                  "end-line": 131,
+                  "url": ""
+                }
+              ],
+              "description": "A Complex Method has a high cyclomatic complexity. The recommended threshold for the C++ language is a cyclomatic complexity lower than 9.\n\nSeverity: Brain Method - Complex Method - Long Method.",
+              "indication": 2
+            },
+            {
+              "category": "Complex Conditional",
+              "functions": [
+                {
+                  "title": "invalidate_descriptor:40",
+                  "details": "2 complex conditional expressions",
+                  "start-line": 40,
+                  "end-line": 40,
+                  "url": ""
+                }
+              ],
+              "description": "A complex conditional is an expression inside a branch such as an <code>if</code>-statmeent which consists of multiple, logical operations. Example: <code>if (x.started() && y.running())</code>.Complex conditionals make the code even harder to read, and contribute to the Complex Method code smell. Encapsulate them.",
+              "indication": 2
+            }
+          ]
+        }
+      },
+      {
+        "exit_code": 0,
+        "stderr": "",
+        "path": "tests/test_pipeline.cpp",
+        "review": {
+          "score": 8.08,
+          "review": [
+            {
+              "category": "Overall Code Complexity",
+              "description": "Overall Code Complexity is measured by the mean cyclomatic complexity across all functions in the file. The lower the number, the better.\n\nCyclomatic complexity is a function level metric that measures the number of logical branches (if-else, loops, etc.). Cyclomatic complexity is a rough complexity measure, but useful as a way of estimating the minimum number of unit tests you would need. As such, prefer functions with low cyclomatic complexity (2-3 branches).",
+              "indication": 2
+            },
+            {
+              "category": "Complex Method",
+              "functions": [
+                {
+                  "title": "failure_and_timestamp_boundaries",
+                  "details": "cc = 20",
+                  "start-line": 92,
+                  "end-line": 139,
+                  "url": ""
+                }
+              ],
+              "description": "A Complex Method has a high cyclomatic complexity. The recommended threshold for the C++ language is a cyclomatic complexity lower than 9.\n\nSeverity: Brain Method - Complex Method - Long Method.",
+              "indication": 2
+            },
+            {
+              "category": "Large Assertion Blocks",
+              "functions": [
+                {
+                  "title": "drained",
+                  "details": "Large assertions = 1 block(s)",
+                  "start-line": 60,
+                  "end-line": 69,
+                  "url": ""
+                },
+                {
+                  "title": "collect",
+                  "details": "Large assertions = 1 block(s)",
+                  "start-line": 142,
+                  "end-line": 149,
+                  "url": ""
+                },
+                {
+                  "title": "main",
+                  "details": "Large assertions = 3 block(s)",
+                  "start-line": 167,
+                  "end-line": 224,
+                  "url": ""
+                }
+              ],
+              "description": "Measures the number of lines with consecutive assert statements in a unit test. The more consecutive assert statements, the lower the code health. The threshold for the C++ language is 4 consecutive lines of assert statements.",
+              "indication": 2
+            }
+          ]
+        }
+      },
+      {
+        "exit_code": 0,
+        "stderr": "",
+        "path": "tests/test_regression.cpp",
+        "review": {
+          "score": 10.0,
+          "review": []
+        }
+      },
+      {
+        "exit_code": 0,
+        "stderr": "",
+        "path": "tests/test_runtime.cpp",
+        "review": {
+          "score": 9.52,
+          "review": [
+            {
+              "category": "Complex Method",
+              "functions": [
+                {
+                  "title": "main",
+                  "details": "cc = 17",
+                  "start-line": 26,
+                  "end-line": 67,
+                  "url": ""
+                }
+              ],
+              "description": "A Complex Method has a high cyclomatic complexity. The recommended threshold for the C++ language is a cyclomatic complexity lower than 9.\n\nSeverity: Brain Method - Complex Method - Long Method.",
+              "indication": 2
+            }
+          ]
+        }
+      },
+      {
+        "exit_code": 0,
+        "stderr": "",
+        "path": "tests/test_simd.cpp",
+        "review": {
+          "score": 10.0,
+          "review": []
+        }
+      },
+      {
+        "exit_code": 0,
+        "stderr": "",
+        "path": "tests/test_soapy.cpp",
+        "review": {
+          "score": 7.8,
+          "review": [
+            {
+              "category": "Complex Method",
+              "functions": [
+                {
+                  "title": "stream_boundaries_and_cleanup",
+                  "details": "cc = 21",
+                  "start-line": 201,
+                  "end-line": 244,
+                  "url": ""
+                },
+                {
+                  "title": "configuration_failures_and_retry",
+                  "details": "cc = 21",
+                  "start-line": 150,
+                  "end-line": 199,
+                  "url": ""
+                },
+                {
+                  "title": "configure_start_read_stop",
+                  "details": "cc = 13",
+                  "start-line": 96,
+                  "end-line": 123,
+                  "url": ""
+                }
+              ],
+              "description": "A Complex Method has a high cyclomatic complexity. The recommended threshold for the C++ language is a cyclomatic complexity lower than 9.\n\nSeverity: Brain Method - Complex Method - Long Method.",
+              "indication": 2
+            },
+            {
+              "category": "Excess Number of Function Arguments",
+              "functions": [
+                {
+                  "title": "SoapySDRDevice_setupStream",
+                  "details": "Arguments = 6",
+                  "start-line": 83,
+                  "end-line": 85,
+                  "url": ""
+                },
+                {
+                  "title": "SoapySDRDevice_readStream",
+                  "details": "Arguments = 7",
+                  "start-line": 89,
+                  "end-line": 91,
+                  "url": ""
+                }
+              ],
+              "description": "Functions with many arguments indicate either a) low cohesion where the function has too many responsibilities, or b) a missing abstraction that encapsulates those arguments.\n\nThe threshold for the C++ language is 4 function arguments.",
+              "indication": 2
+            },
+            {
+              "category": "Large Assertion Blocks",
+              "functions": [
+                {
+                  "title": "configure_start_read_stop",
+                  "details": "Large assertions = 1 block(s)",
+                  "start-line": 96,
+                  "end-line": 123,
+                  "url": ""
+                },
+                {
+                  "title": "failure_paths_preserve_diagnostics",
+                  "details": "Large assertions = 1 block(s)",
+                  "start-line": 125,
+                  "end-line": 148,
+                  "url": ""
+                },
+                {
+                  "title": "configuration_failures_and_retry",
+                  "details": "Large assertions = 2 block(s)",
+                  "start-line": 150,
+                  "end-line": 199,
+                  "url": ""
+                }
+              ],
+              "description": "Measures the number of lines with consecutive assert statements in a unit test. The more consecutive assert statements, the lower the code health. The threshold for the C++ language is 4 consecutive lines of assert statements.",
+              "indication": 2
+            }
+          ]
+        }
+      },
+      {
+        "exit_code": 0,
+        "stderr": "",
+        "path": "scripts/assess_complexity.py",
+        "review": {
+          "score": 10.0,
+          "review": []
+        }
+      },
+      {
+        "exit_code": 0,
+        "stderr": "",
+        "path": "scripts/benchmark_runtime.py",
+        "review": {
+          "score": null,
+          "review": []
+        }
+      },
+      {
+        "exit_code": 0,
+        "stderr": "",
+        "path": "scripts/report_coverage.py",
+        "review": {
+          "score": 8.8,
+          "review": [
+            {
+              "category": "Bumpy Road Ahead",
+              "functions": [
+                {
+                  "title": "main",
+                  "details": "bumps = 3",
+                  "start-line": 17,
+                  "end-line": 66,
+                  "url": ""
+                }
+              ],
+              "description": "A Bumpy Road is a function that contains multiple chunks of nested conditional logic inside the same function. The deeper the nesting and the more bumps, the lower the code health.\n\nA bumpy code road represents a lack of encapsulation which becomes an obstacle to comprehension. In imperative languages there\u2019s also an increased risk for feature entanglement, which leads to complex state management. CodeScene considers the following rules for the code health impact: 1) The deeper the nested conditional logic of each bump, the higher the tax on our working memory. 2) The more bumps inside a function, the more expensive it is to refactor as each bump represents a missing abstraction. 3) The larger each bump \u2013 that is, the more lines of code it spans \u2013 the harder it is to build up a mental model of the function. The nesting depth for what is considered a bump is 2 levels of conditionals.",
+              "indication": 3
+            },
+            {
+              "category": "Deep, Nested Complexity",
+              "functions": [
+                {
+                  "title": "main",
+                  "details": "Nesting depth = 4 conditionals",
+                  "start-line": 17,
+                  "end-line": 66,
+                  "url": ""
+                }
+              ],
+              "description": "Deep nested logic means that you have control structures like if-statements or loops inside other control structures. Deep nested logic increases the cognitive load on the programmer reading the code. The human working memory has a maximum capacity of 3-4 items; beyond that threshold, we struggle with keeping things in our head. Consequently, deep nested logic has a strong correlation to defects and accounts for roughly 20% of all programming mistakes.\n\nCodeScene measures the maximum nesting depth inside each function. The deeper the nesting, the lower the code health. The threshold for the Python language is 4 levels of nesting.",
+              "indication": 3
+            },
+            {
+              "category": "Complex Method",
+              "functions": [
+                {
+                  "title": "main",
+                  "details": "cc = 17",
+                  "start-line": 17,
+                  "end-line": 66,
+                  "url": ""
+                }
+              ],
+              "description": "A Complex Method has a high cyclomatic complexity. The recommended threshold for the Python language is a cyclomatic complexity lower than 9.\n\nSeverity: Brain Method - Complex Method - Long Method.",
+              "indication": 2
+            }
+          ]
+        }
+      },
+      {
+        "exit_code": 0,
+        "stderr": "",
+        "path": "scripts/verify_cli.py",
+        "review": {
+          "score": 9.53,
+          "review": [
+            {
+              "category": "Bumpy Road Ahead",
+              "functions": [
+                {
+                  "title": "main",
+                  "details": "bumps = 2",
+                  "start-line": 9,
+                  "end-line": 79,
+                  "url": ""
+                }
+              ],
+              "description": "A Bumpy Road is a function that contains multiple chunks of nested conditional logic inside the same function. The deeper the nesting and the more bumps, the lower the code health.\n\nA bumpy code road represents a lack of encapsulation which becomes an obstacle to comprehension. In imperative languages there\u2019s also an increased risk for feature entanglement, which leads to complex state management. CodeScene considers the following rules for the code health impact: 1) The deeper the nested conditional logic of each bump, the higher the tax on our working memory. 2) The more bumps inside a function, the more expensive it is to refactor as each bump represents a missing abstraction. 3) The larger each bump \u2013 that is, the more lines of code it spans \u2013 the harder it is to build up a mental model of the function. The nesting depth for what is considered a bump is 2 levels of conditionals.",
+              "indication": 3
+            },
+            {
+              "category": "Complex Method",
+              "functions": [
+                {
+                  "title": "main",
+                  "details": "cc = 11",
+                  "start-line": 9,
+                  "end-line": 79,
+                  "url": ""
+                }
+              ],
+              "description": "A Complex Method has a high cyclomatic complexity. The recommended threshold for the Python language is a cyclomatic complexity lower than 9.\n\nSeverity: Brain Method - Complex Method - Long Method.",
+              "indication": 2
+            }
+          ]
+        }
+      },
+      {
+        "exit_code": 0,
+        "stderr": "",
+        "path": "scripts/verify_observability.py",
+        "review": {
+          "score": 8.95,
+          "review": [
+            {
+              "category": "Bumpy Road Ahead",
+              "functions": [
+                {
+                  "title": "small_file_limit",
+                  "details": "bumps = 3",
+                  "start-line": 84,
+                  "end-line": 86,
+                  "url": ""
+                }
+              ],
+              "description": "A Bumpy Road is a function that contains multiple chunks of nested conditional logic inside the same function. The deeper the nesting and the more bumps, the lower the code health.\n\nA bumpy code road represents a lack of encapsulation which becomes an obstacle to comprehension. In imperative languages there\u2019s also an increased risk for feature entanglement, which leads to complex state management. CodeScene considers the following rules for the code health impact: 1) The deeper the nested conditional logic of each bump, the higher the tax on our working memory. 2) The more bumps inside a function, the more expensive it is to refactor as each bump represents a missing abstraction. 3) The larger each bump \u2013 that is, the more lines of code it spans \u2013 the harder it is to build up a mental model of the function. The nesting depth for what is considered a bump is 2 levels of conditionals.",
+              "indication": 3
+            },
+            {
+              "category": "Deep, Nested Complexity",
+              "functions": [
+                {
+                  "title": "small_file_limit",
+                  "details": "Nesting depth = 4 conditionals",
+                  "start-line": 84,
+                  "end-line": 86,
+                  "url": ""
+                }
+              ],
+              "description": "Deep nested logic means that you have control structures like if-statements or loops inside other control structures. Deep nested logic increases the cognitive load on the programmer reading the code. The human working memory has a maximum capacity of 3-4 items; beyond that threshold, we struggle with keeping things in our head. Consequently, deep nested logic has a strong correlation to defects and accounts for roughly 20% of all programming mistakes.\n\nCodeScene measures the maximum nesting depth inside each function. The deeper the nesting, the lower the code health. The threshold for the Python language is 4 levels of nesting.",
+              "indication": 3
+            },
+            {
+              "category": "Global Conditionals",
+              "description": "There's global code outside of functions that contain complex constructs. Consider to encapsulate those business rules in named functions.",
+              "indication": 2
+            }
+          ]
+        }
+      },
+      {
+        "exit_code": 0,
+        "stderr": "",
+        "path": "scripts/verify_portable.py",
+        "review": {
+          "score": 10.0,
+          "review": [
+            {
+              "category": "Global Conditionals",
+              "description": "There's global code outside of functions that contain complex constructs. Consider to encapsulate those business rules in named functions.",
+              "indication": 2
+            }
+          ]
+        }
+      },
+      {
+        "exit_code": 0,
+        "stderr": "",
+        "path": "scripts/verify_replay.py",
+        "review": {
+          "score": null,
+          "review": []
+        }
+      },
+      {
+        "exit_code": 0,
+        "stderr": "",
+        "path": "scripts/verify_runtime.py",
+        "review": {
+          "score": 10.0,
+          "review": []
+        }
+      },
+      {
+        "exit_code": 0,
+        "stderr": "",
+        "path": "scripts/verify_soapy_stub.py",
+        "review": {
+          "score": 10.0,
+          "review": []
+        }
+      }
+    ]
+  },
+  "local_complexity": {
+    "status": "complete",
+    "tool": "Lizard",
+    "version": "1.23.0",
+    "metric": "Lizard CCN; not CodeScene scores or findings",
+    "functions": [
+      {
+        "path": "src/main.cpp",
+        "function": "main",
+        "start_line": 58,
+        "end_line": 167,
+        "ccn": 66,
+        "nloc": 102,
+        "parameters": 2
+      },
+      {
+        "path": "src/rf/dsp.cppm",
+        "function": "rf::dsp::StreamingDetector::initialize",
+        "start_line": 43,
+        "end_line": 79,
+        "ccn": 42,
+        "nloc": 37,
+        "parameters": 2
+      },
+      {
+        "path": "src/rf/dsp.cppm",
+        "function": "rf::dsp::StreamingDetector::analyze",
+        "start_line": 170,
+        "end_line": 236,
+        "ccn": 41,
+        "nloc": 65,
+        "parameters": 3
+      },
+      {
+        "path": "tests/test_dsp.cpp",
+        "function": "main",
+        "start_line": 55,
+        "end_line": 199,
+        "ccn": 31,
+        "nloc": 141,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/dsp.cppm",
+        "function": "rf::dsp::StreamingDetector::feed",
+        "start_line": 86,
+        "end_line": 109,
+        "ccn": 29,
+        "nloc": 24,
+        "parameters": 3
+      },
+      {
+        "path": "tests/test_health.cpp",
+        "function": "main",
+        "start_line": 15,
+        "end_line": 106,
+        "ccn": 24,
+        "nloc": 84,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/health.cppm",
+        "function": "rf::health::Monitor::poll",
+        "start_line": 49,
+        "end_line": 103,
+        "ccn": 23,
+        "nloc": 51,
+        "parameters": 2
+      },
+      {
+        "path": "src/rf/soapy.cppm",
+        "function": "rf::acquire::SoapySource::configure",
+        "start_line": 53,
+        "end_line": 124,
+        "ccn": 23,
+        "nloc": 66,
+        "parameters": 1
+      },
+      {
+        "path": "src/rf/acquire.cppm",
+        "function": "rf::acquire::MockSource::read_into",
+        "start_line": 72,
+        "end_line": 119,
+        "ccn": 21,
+        "nloc": 46,
+        "parameters": 3
+      },
+      {
+        "path": "src/rf/pipeline.cppm",
+        "function": "rf::pipeline::PipelineSystem::run_acquisition",
+        "start_line": 69,
+        "end_line": 121,
+        "ccn": 21,
+        "nloc": 51,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_acquire.cpp",
+        "function": "main",
+        "start_line": 99,
+        "end_line": 142,
+        "ccn": 21,
+        "nloc": 39,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_soapy.cpp",
+        "function": "configuration_failures_and_retry",
+        "start_line": 150,
+        "end_line": 199,
+        "ccn": 21,
+        "nloc": 50,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_soapy.cpp",
+        "function": "stream_boundaries_and_cleanup",
+        "start_line": 201,
+        "end_line": 244,
+        "ccn": 21,
+        "nloc": 43,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_pipeline.cpp",
+        "function": "failure_and_timestamp_boundaries",
+        "start_line": 92,
+        "end_line": 139,
+        "ccn": 20,
+        "nloc": 48,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_acquire.cpp",
+        "function": "replay_boundaries",
+        "start_line": 67,
+        "end_line": 98,
+        "ccn": 18,
+        "nloc": 31,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_memory.cpp",
+        "function": "test_region_and_pool_boundaries",
+        "start_line": 84,
+        "end_line": 124,
+        "ccn": 18,
+        "nloc": 39,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_runtime.cpp",
+        "function": "main",
+        "start_line": 26,
+        "end_line": 67,
+        "ccn": 18,
+        "nloc": 41,
+        "parameters": 0
+      },
+      {
+        "path": "scripts/report_coverage.py",
+        "function": "main",
+        "start_line": 17,
+        "end_line": 66,
+        "ccn": 17,
+        "nloc": 50,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/memory.cppm",
+        "function": "rf::memory::PinnedRegion::map",
+        "start_line": 128,
+        "end_line": 170,
+        "ccn": 16,
+        "nloc": 33,
+        "parameters": 2
+      },
+      {
+        "path": "tests/test_soapy.cpp",
+        "function": "configure_start_read_stop",
+        "start_line": 96,
+        "end_line": 123,
+        "ccn": 13,
+        "nloc": 28,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/acquire.cppm",
+        "function": "rf::acquire::valid_config",
+        "start_line": 37,
+        "end_line": 42,
+        "ccn": 12,
+        "nloc": 6,
+        "parameters": 1
+      },
+      {
+        "path": "src/rf/acquire.cppm",
+        "function": "rf::acquire::ReplaySource::read_into",
+        "start_line": 149,
+        "end_line": 160,
+        "ccn": 12,
+        "nloc": 10,
+        "parameters": 3
+      },
+      {
+        "path": "src/rf/soapy.cppm",
+        "function": "rf::acquire::SoapySource::read_into",
+        "start_line": 161,
+        "end_line": 182,
+        "ccn": 12,
+        "nloc": 22,
+        "parameters": 3
+      },
+      {
+        "path": "tests/test_dsp_boundaries.cpp",
+        "function": "continuity_and_cache",
+        "start_line": 140,
+        "end_line": 179,
+        "ccn": 12,
+        "nloc": 38,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_memory.cpp",
+        "function": "test_cross_thread_stress",
+        "start_line": 143,
+        "end_line": 197,
+        "ccn": 12,
+        "nloc": 51,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/dsp.cppm",
+        "function": "rf::dsp::StreamingDetector::configure_segment",
+        "start_line": 127,
+        "end_line": 141,
+        "ccn": 11,
+        "nloc": 15,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/fft.cppm",
+        "function": "rf::fft::Radix2FFT::initialize",
+        "start_line": 33,
+        "end_line": 71,
+        "ccn": 11,
+        "nloc": 36,
+        "parameters": 2
+      },
+      {
+        "path": "src/rf/pipeline.cppm",
+        "function": "rf::pipeline::PipelineSystem::run_dsp",
+        "start_line": 122,
+        "end_line": 145,
+        "ccn": 11,
+        "nloc": 24,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_acquire.cpp",
+        "function": "configuration_and_lifecycle",
+        "start_line": 27,
+        "end_line": 65,
+        "ccn": 11,
+        "nloc": 39,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_dsp_boundaries.cpp",
+        "function": "invalid_samples_and_time",
+        "start_line": 181,
+        "end_line": 203,
+        "ccn": 11,
+        "nloc": 23,
+        "parameters": 0
+      },
+      {
+        "path": "scripts/verify_cli.py",
+        "function": "main",
+        "start_line": 9,
+        "end_line": 79,
+        "ccn": 10,
+        "nloc": 60,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/pipeline.cppm",
+        "function": "rf::pipeline::PipelineSystem::initialize",
+        "start_line": 57,
+        "end_line": 68,
+        "ccn": 10,
+        "nloc": 12,
+        "parameters": 1
+      },
+      {
+        "path": "tests/test_output.cpp",
+        "function": "main",
+        "start_line": 47,
+        "end_line": 131,
+        "ccn": 10,
+        "nloc": 82,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/health.cppm",
+        "function": "rf::health::name",
+        "start_line": 19,
+        "end_line": 31,
+        "ccn": 9,
+        "nloc": 13,
+        "parameters": 1
+      },
+      {
+        "path": "src/rf/fft.cppm",
+        "function": "rf::fft::Radix2FFT::execute",
+        "start_line": 79,
+        "end_line": 110,
+        "ccn": 8,
+        "nloc": 30,
+        "parameters": 1
+      },
+      {
+        "path": "src/rf/pipeline.cppm",
+        "function": "rf::pipeline::PipelineSystem::run_sink",
+        "start_line": 146,
+        "end_line": 159,
+        "ccn": 8,
+        "nloc": 14,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_memory.cpp",
+        "function": "test_pinned_region",
+        "start_line": 29,
+        "end_line": 66,
+        "ccn": 8,
+        "nloc": 33,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/acquire.cppm",
+        "function": "rf::acquire::ReplaySource::start",
+        "start_line": 139,
+        "end_line": 146,
+        "ccn": 7,
+        "nloc": 8,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/soapy.cppm",
+        "function": "rf::acquire::SoapySource::start",
+        "start_line": 126,
+        "end_line": 145,
+        "ccn": 7,
+        "nloc": 20,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_output.cpp",
+        "function": "invalidate_descriptor",
+        "start_line": 32,
+        "end_line": 45,
+        "ccn": 7,
+        "nloc": 14,
+        "parameters": 1
+      },
+      {
+        "path": "tests/test_pipeline.cpp",
+        "function": "ScriptedSource::read_into",
+        "start_line": 78,
+        "end_line": 87,
+        "ccn": 7,
+        "nloc": 10,
+        "parameters": 3
+      },
+      {
+        "path": "tests/test_pipeline.cpp",
+        "function": "SinkRecords::collect",
+        "start_line": 142,
+        "end_line": 149,
+        "ccn": 7,
+        "nloc": 8,
+        "parameters": 2
+      },
+      {
+        "path": "tests/test_pipeline.cpp",
+        "function": "main",
+        "start_line": 167,
+        "end_line": 224,
+        "ccn": 7,
+        "nloc": 58,
+        "parameters": 0
+      },
+      {
+        "path": "scripts/assess_complexity.py",
+        "function": "main",
+        "start_line": 88,
+        "end_line": 107,
+        "ccn": 6,
+        "nloc": 20,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/output.cppm",
+        "function": "rf::output::CsvWriter::open",
+        "start_line": 28,
+        "end_line": 41,
+        "ccn": 6,
+        "nloc": 11,
+        "parameters": 1
+      },
+      {
+        "path": "src/rf/soapy.cppm",
+        "function": "rf::acquire::SoapySource::stop",
+        "start_line": 147,
+        "end_line": 159,
+        "ccn": 6,
+        "nloc": 13,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_dsp_boundaries.cpp",
+        "function": "allocation_rollback",
+        "start_line": 122,
+        "end_line": 138,
+        "ccn": 6,
+        "nloc": 15,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_fft.cpp",
+        "function": "test_signed_frequency_tones",
+        "start_line": 69,
+        "end_line": 90,
+        "ccn": 6,
+        "nloc": 21,
+        "parameters": 0
+      },
+      {
+        "path": "scripts/assess_complexity.py",
+        "function": "codescene_reviews",
+        "start_line": 60,
+        "end_line": 85,
+        "ccn": 5,
+        "nloc": 24,
+        "parameters": 2
+      },
+      {
+        "path": "src/rf/dsp.cppm",
+        "function": "rf::dsp::StreamingDetector::sort_references",
+        "start_line": 120,
+        "end_line": 126,
+        "ccn": 5,
+        "nloc": 7,
+        "parameters": 1
+      },
+      {
+        "path": "src/rf/dsp.cppm",
+        "function": "rf::dsp::StreamingDetector::publish",
+        "start_line": 142,
+        "end_line": 158,
+        "ccn": 5,
+        "nloc": 17,
+        "parameters": 5
+      },
+      {
+        "path": "src/rf/pipeline.cppm",
+        "function": "rf::pipeline::PipelineSystem::reclaim_held_slots",
+        "start_line": 161,
+        "end_line": 164,
+        "ccn": 5,
+        "nloc": 4,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/soapy.cppm",
+        "function": "rf::acquire::SoapySource::copy",
+        "start_line": 191,
+        "end_line": 198,
+        "ccn": 5,
+        "nloc": 8,
+        "parameters": 3
+      },
+      {
+        "path": "tests/test_dsp_boundaries.cpp",
+        "function": "Fixture::Fixture",
+        "start_line": 44,
+        "end_line": 55,
+        "ccn": 5,
+        "nloc": 12,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_pipeline.cpp",
+        "function": "FiniteSource::read_into",
+        "start_line": 30,
+        "end_line": 36,
+        "ccn": 5,
+        "nloc": 7,
+        "parameters": 3
+      },
+      {
+        "path": "tests/test_pipeline.cpp",
+        "function": "RecoveringSource::read_into",
+        "start_line": 45,
+        "end_line": 54,
+        "ccn": 5,
+        "nloc": 9,
+        "parameters": 3
+      },
+      {
+        "path": "tests/test_pipeline.cpp",
+        "function": "delayed_sink_accounting",
+        "start_line": 151,
+        "end_line": 166,
+        "ccn": 5,
+        "nloc": 16,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_simd.cpp",
+        "function": "main",
+        "start_line": 71,
+        "end_line": 88,
+        "ccn": 5,
+        "nloc": 15,
+        "parameters": 0
+      },
+      {
+        "path": "scripts/assess_complexity.py",
+        "function": "local_metrics",
+        "start_line": 31,
+        "end_line": 46,
+        "ccn": 4,
+        "nloc": 16,
+        "parameters": 1
+      },
+      {
+        "path": "scripts/verify_runtime.py",
+        "function": "run_sigterm",
+        "start_line": 43,
+        "end_line": 70,
+        "ccn": 4,
+        "nloc": 28,
+        "parameters": 1
+      },
+      {
+        "path": "scripts/verify_runtime.py",
+        "function": "main",
+        "start_line": 73,
+        "end_line": 101,
+        "ccn": 4,
+        "nloc": 28,
+        "parameters": 0
+      },
+      {
+        "path": "src/main.cpp",
+        "function": "number",
+        "start_line": 53,
+        "end_line": 53,
+        "ccn": 4,
+        "nloc": 1,
+        "parameters": 2
+      },
+      {
+        "path": "src/rf/acquire.cppm",
+        "function": "rf::acquire::ReplaySource::configure",
+        "start_line": 135,
+        "end_line": 138,
+        "ccn": 4,
+        "nloc": 4,
+        "parameters": 1
+      },
+      {
+        "path": "src/rf/memory.cppm",
+        "function": "rf::memory::SPSCFreeList::release",
+        "start_line": 228,
+        "end_line": 237,
+        "ccn": 4,
+        "nloc": 10,
+        "parameters": 1
+      },
+      {
+        "path": "src/rf/pipeline.cppm",
+        "function": "rf::pipeline::PipelineSystem::emit",
+        "start_line": 184,
+        "end_line": 193,
+        "ccn": 4,
+        "nloc": 9,
+        "parameters": 2
+      },
+      {
+        "path": "src/rf/runtime.cppm",
+        "function": "rf::runtime::drain_step",
+        "start_line": 136,
+        "end_line": 142,
+        "ccn": 4,
+        "nloc": 7,
+        "parameters": 3
+      },
+      {
+        "path": "tests/test_dsp.cpp",
+        "function": "samples",
+        "start_line": 31,
+        "end_line": 41,
+        "ccn": 4,
+        "nloc": 11,
+        "parameters": 3
+      },
+      {
+        "path": "tests/test_memory.cpp",
+        "function": "test_freelist_single_thread",
+        "start_line": 68,
+        "end_line": 82,
+        "ccn": 4,
+        "nloc": 15,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_memory.cpp",
+        "function": "test_queue_single_thread",
+        "start_line": 126,
+        "end_line": 138,
+        "ccn": 4,
+        "nloc": 12,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_simd.cpp",
+        "function": "check_reference",
+        "start_line": 50,
+        "end_line": 68,
+        "ccn": 4,
+        "nloc": 19,
+        "parameters": 1
+      },
+      {
+        "path": "tests/test_soapy.cpp",
+        "function": "SoapySDRDevice_setupStream",
+        "start_line": 83,
+        "end_line": 85,
+        "ccn": 4,
+        "nloc": 3,
+        "parameters": 4
+      },
+      {
+        "path": "scripts/assess_complexity.py",
+        "function": "inventory",
+        "start_line": 21,
+        "end_line": 28,
+        "ccn": 3,
+        "nloc": 8,
+        "parameters": 0
+      },
+      {
+        "path": "scripts/assess_complexity.py",
+        "function": "invoke",
+        "start_line": 49,
+        "end_line": 57,
+        "ccn": 3,
+        "nloc": 9,
+        "parameters": 3
+      },
+      {
+        "path": "scripts/verify_observability.py",
+        "function": "stop",
+        "start_line": 18,
+        "end_line": 26,
+        "ccn": 3,
+        "nloc": 9,
+        "parameters": 1
+      },
+      {
+        "path": "src/rf/acquire.cppm",
+        "function": "rf::acquire::MockSource::configure",
+        "start_line": 59,
+        "end_line": 65,
+        "ccn": 3,
+        "nloc": 7,
+        "parameters": 1
+      },
+      {
+        "path": "src/rf/acquire.cppm",
+        "function": "rf::acquire::MockSource::start",
+        "start_line": 66,
+        "end_line": 70,
+        "ccn": 3,
+        "nloc": 5,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/dsp.cppm",
+        "function": "rf::dsp::StreamingDetector::finish",
+        "start_line": 110,
+        "end_line": 113,
+        "ccn": 3,
+        "nloc": 4,
+        "parameters": 2
+      },
+      {
+        "path": "src/rf/health.cppm",
+        "function": "rf::health::Monitor::age",
+        "start_line": 106,
+        "end_line": 109,
+        "ccn": 3,
+        "nloc": 4,
+        "parameters": 2
+      },
+      {
+        "path": "src/rf/memory.cppm",
+        "function": "rf::memory::memlock_limit_bytes",
+        "start_line": 59,
+        "end_line": 64,
+        "ccn": 3,
+        "nloc": 6,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/memory.cppm",
+        "function": "rf::memory::PinnedRegion::unmap",
+        "start_line": 172,
+        "end_line": 177,
+        "ccn": 3,
+        "nloc": 6,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/memory.cppm",
+        "function": "rf::memory::SPSCFreeList::reset_quiescent",
+        "start_line": 205,
+        "end_line": 210,
+        "ccn": 3,
+        "nloc": 6,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/memory.cppm",
+        "function": "rf::memory::SPSCFreeList::try_acquire",
+        "start_line": 215,
+        "end_line": 224,
+        "ccn": 3,
+        "nloc": 10,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/memory.cppm",
+        "function": "rf::memory::FixedPool::initialize",
+        "start_line": 273,
+        "end_line": 278,
+        "ccn": 3,
+        "nloc": 6,
+        "parameters": 1
+      },
+      {
+        "path": "src/rf/output.cppm",
+        "function": "rf::output::CsvWriter::close",
+        "start_line": 44,
+        "end_line": 48,
+        "ccn": 3,
+        "nloc": 5,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/output.cppm",
+        "function": "rf::output::CsvWriter::write",
+        "start_line": 55,
+        "end_line": 65,
+        "ccn": 3,
+        "nloc": 11,
+        "parameters": 1
+      },
+      {
+        "path": "src/rf/runtime.cppm",
+        "function": "rf::runtime::cpu_relax",
+        "start_line": 144,
+        "end_line": 152,
+        "ccn": 3,
+        "nloc": 5,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/simd.cppm",
+        "function": "rf::simd::GenericFallback::sum",
+        "start_line": 67,
+        "end_line": 79,
+        "ccn": 3,
+        "nloc": 13,
+        "parameters": 2
+      },
+      {
+        "path": "src/rf/simd.cppm",
+        "function": "rf::simd::NeonBackend::deinterleave_and_convert_s16_f32",
+        "start_line": 88,
+        "end_line": 111,
+        "ccn": 3,
+        "nloc": 24,
+        "parameters": 5
+      },
+      {
+        "path": "src/rf/simd.cppm",
+        "function": "rf::simd::NeonBackend::magnitude_squared",
+        "start_line": 113,
+        "end_line": 127,
+        "ccn": 3,
+        "nloc": 14,
+        "parameters": 4
+      },
+      {
+        "path": "src/rf/simd.cppm",
+        "function": "rf::simd::NeonBackend::sum",
+        "start_line": 129,
+        "end_line": 138,
+        "ccn": 3,
+        "nloc": 9,
+        "parameters": 2
+      },
+      {
+        "path": "src/rf/soapy.cppm",
+        "function": "rf::acquire::SoapySource::SoapySource",
+        "start_line": 30,
+        "end_line": 39,
+        "ccn": 3,
+        "nloc": 10,
+        "parameters": 1
+      },
+      {
+        "path": "src/rf/soapy.cppm",
+        "function": "rf::acquire::SoapySource::~SoapySource",
+        "start_line": 40,
+        "end_line": 48,
+        "ccn": 3,
+        "nloc": 9,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/soapy.cppm",
+        "function": "rf::acquire::SoapySource::set_error",
+        "start_line": 204,
+        "end_line": 207,
+        "ccn": 3,
+        "nloc": 4,
+        "parameters": 2
+      },
+      {
+        "path": "src/rf/soapy.cppm",
+        "function": "rf::acquire::SoapySource::set_api_error",
+        "start_line": 209,
+        "end_line": 213,
+        "ccn": 3,
+        "nloc": 5,
+        "parameters": 2
+      },
+      {
+        "path": "tests/test_dsp_boundaries.cpp",
+        "function": "configuration_validation",
+        "start_line": 62,
+        "end_line": 96,
+        "ccn": 3,
+        "nloc": 34,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_dsp_boundaries.cpp",
+        "function": "feed_validation",
+        "start_line": 98,
+        "end_line": 120,
+        "ccn": 3,
+        "nloc": 23,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_fft.cpp",
+        "function": "test_independent_direct_dft",
+        "start_line": 92,
+        "end_line": 117,
+        "ccn": 3,
+        "nloc": 25,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_fft.cpp",
+        "function": "test_parseval_at_detector_size",
+        "start_line": 119,
+        "end_line": 140,
+        "ccn": 3,
+        "nloc": 22,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_soapy.cpp",
+        "function": "SoapySDR_errToStr",
+        "start_line": 67,
+        "end_line": 67,
+        "ccn": 3,
+        "nloc": 1,
+        "parameters": 1
+      },
+      {
+        "path": "scripts/verify_cli.py",
+        "function": "main.run",
+        "start_line": 16,
+        "end_line": 23,
+        "ccn": 2,
+        "nloc": 8,
+        "parameters": 3
+      },
+      {
+        "path": "scripts/verify_runtime.py",
+        "function": "run_timed",
+        "start_line": 24,
+        "end_line": 40,
+        "ccn": 2,
+        "nloc": 17,
+        "parameters": 2
+      },
+      {
+        "path": "src/rf/acquire.cppm",
+        "function": "rf::acquire::ReplaySource::stop",
+        "start_line": 147,
+        "end_line": 147,
+        "ccn": 2,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/core.cppm",
+        "function": "rf::core::is_power_of_two",
+        "start_line": 42,
+        "end_line": 44,
+        "ccn": 2,
+        "nloc": 3,
+        "parameters": 1
+      },
+      {
+        "path": "src/rf/core.cppm",
+        "function": "rf::core::sleep_ns",
+        "start_line": 82,
+        "end_line": 87,
+        "ccn": 2,
+        "nloc": 6,
+        "parameters": 1
+      },
+      {
+        "path": "src/rf/dsp.cppm",
+        "function": "rf::dsp::StreamingDetector::noise_floor_db",
+        "start_line": 118,
+        "end_line": 118,
+        "ccn": 2,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/dsp.cppm",
+        "function": "rf::dsp::StreamingDetector::close_all",
+        "start_line": 163,
+        "end_line": 165,
+        "ccn": 2,
+        "nloc": 3,
+        "parameters": 3
+      },
+      {
+        "path": "src/rf/memory.cppm",
+        "function": "rf::memory::page_size",
+        "start_line": 53,
+        "end_line": 56,
+        "ccn": 2,
+        "nloc": 4,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/memory.cppm",
+        "function": "rf::memory::establish_array",
+        "start_line": 76,
+        "end_line": 85,
+        "ccn": 2,
+        "nloc": 4,
+        "parameters": 2
+      },
+      {
+        "path": "src/rf/memory.cppm",
+        "function": "rf::memory::PinnedRegion::operator =",
+        "start_line": 117,
+        "end_line": 126,
+        "ccn": 2,
+        "nloc": 10,
+        "parameters": 1
+      },
+      {
+        "path": "src/rf/memory.cppm",
+        "function": "rf::memory::FixedPool::try_acquire",
+        "start_line": 282,
+        "end_line": 282,
+        "ccn": 2,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/memory.cppm",
+        "function": "rf::memory::FixedPool::release",
+        "start_line": 283,
+        "end_line": 283,
+        "ccn": 2,
+        "nloc": 1,
+        "parameters": 1
+      },
+      {
+        "path": "src/rf/output.cppm",
+        "function": "rf::output::write_health",
+        "start_line": 76,
+        "end_line": 91,
+        "ccn": 2,
+        "nloc": 16,
+        "parameters": 2
+      },
+      {
+        "path": "src/rf/pipeline.cppm",
+        "function": "rf::pipeline::Backoff::pause",
+        "start_line": 39,
+        "end_line": 46,
+        "ccn": 2,
+        "nloc": 5,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/pipeline.cppm",
+        "function": "rf::pipeline::PipelineSystem::mark_gap",
+        "start_line": 180,
+        "end_line": 180,
+        "ccn": 2,
+        "nloc": 1,
+        "parameters": 1
+      },
+      {
+        "path": "src/rf/runtime.cppm",
+        "function": "rf::runtime::HandleQueue::try_push",
+        "start_line": 38,
+        "end_line": 45,
+        "ccn": 2,
+        "nloc": 8,
+        "parameters": 1
+      },
+      {
+        "path": "src/rf/runtime.cppm",
+        "function": "rf::runtime::HandleQueue::try_pop",
+        "start_line": 48,
+        "end_line": 55,
+        "ccn": 2,
+        "nloc": 8,
+        "parameters": 1
+      },
+      {
+        "path": "src/rf/runtime.cppm",
+        "function": "rf::runtime::pin_current_thread",
+        "start_line": 156,
+        "end_line": 162,
+        "ccn": 2,
+        "nloc": 7,
+        "parameters": 1
+      },
+      {
+        "path": "src/rf/simd.cppm",
+        "function": "rf::simd::GenericFallback::deinterleave_and_convert_s16_f32",
+        "start_line": 41,
+        "end_line": 51,
+        "ccn": 2,
+        "nloc": 11,
+        "parameters": 5
+      },
+      {
+        "path": "src/rf/simd.cppm",
+        "function": "rf::simd::GenericFallback::magnitude_squared",
+        "start_line": 53,
+        "end_line": 64,
+        "ccn": 2,
+        "nloc": 12,
+        "parameters": 4
+      },
+      {
+        "path": "src/rf/soapy.cppm",
+        "function": "rf::acquire::SoapySource::append_error",
+        "start_line": 200,
+        "end_line": 203,
+        "ccn": 2,
+        "nloc": 4,
+        "parameters": 1
+      },
+      {
+        "path": "src/rf/soapy.cppm",
+        "function": "rf::acquire::SoapySource::getter_ok",
+        "start_line": 214,
+        "end_line": 218,
+        "ccn": 2,
+        "nloc": 5,
+        "parameters": 1
+      },
+      {
+        "path": "src/rf/soapy.cppm",
+        "function": "rf::acquire::SoapySource::preserve_error_and_unmake",
+        "start_line": 219,
+        "end_line": 223,
+        "ccn": 2,
+        "nloc": 5,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_acquire.cpp",
+        "function": "capture",
+        "start_line": 21,
+        "end_line": 26,
+        "ccn": 2,
+        "nloc": 6,
+        "parameters": 1
+      },
+      {
+        "path": "tests/test_dsp.cpp",
+        "function": "run",
+        "start_line": 42,
+        "end_line": 54,
+        "ccn": 2,
+        "nloc": 13,
+        "parameters": 4
+      },
+      {
+        "path": "tests/test_fft.cpp",
+        "function": "test_impulse",
+        "start_line": 56,
+        "end_line": 67,
+        "ccn": 2,
+        "nloc": 12,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_output.cpp",
+        "function": "contents",
+        "start_line": 23,
+        "end_line": 28,
+        "ccn": 2,
+        "nloc": 6,
+        "parameters": 1
+      },
+      {
+        "path": "tests/test_runtime.cpp",
+        "function": "FinalPublication::try_pop",
+        "start_line": 20,
+        "end_line": 23,
+        "ccn": 2,
+        "nloc": 4,
+        "parameters": 1
+      },
+      {
+        "path": "tests/test_simd.cpp",
+        "function": "check_parity",
+        "start_line": 30,
+        "end_line": 47,
+        "ccn": 2,
+        "nloc": 16,
+        "parameters": 1
+      },
+      {
+        "path": "tests/test_soapy.cpp",
+        "function": "fake::getter_status",
+        "start_line": 48,
+        "end_line": 48,
+        "ccn": 2,
+        "nloc": 1,
+        "parameters": 1
+      },
+      {
+        "path": "tests/test_soapy.cpp",
+        "function": "SoapySDRDevice_makeStrArgs",
+        "start_line": 63,
+        "end_line": 63,
+        "ccn": 2,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_soapy.cpp",
+        "function": "SoapySDRDevice_setFrequency",
+        "start_line": 70,
+        "end_line": 70,
+        "ccn": 2,
+        "nloc": 1,
+        "parameters": 3
+      },
+      {
+        "path": "tests/test_soapy.cpp",
+        "function": "SoapySDRDevice_setSampleRate",
+        "start_line": 72,
+        "end_line": 72,
+        "ccn": 2,
+        "nloc": 1,
+        "parameters": 3
+      },
+      {
+        "path": "tests/test_soapy.cpp",
+        "function": "SoapySDRDevice_getSampleRate",
+        "start_line": 73,
+        "end_line": 73,
+        "ccn": 2,
+        "nloc": 1,
+        "parameters": 2
+      },
+      {
+        "path": "tests/test_soapy.cpp",
+        "function": "SoapySDRDevice_setBandwidth",
+        "start_line": 74,
+        "end_line": 74,
+        "ccn": 2,
+        "nloc": 1,
+        "parameters": 3
+      },
+      {
+        "path": "tests/test_soapy.cpp",
+        "function": "SoapySDRDevice_setGain",
+        "start_line": 76,
+        "end_line": 76,
+        "ccn": 2,
+        "nloc": 1,
+        "parameters": 3
+      },
+      {
+        "path": "tests/test_soapy.cpp",
+        "function": "SoapySDRDevice_getNativeStreamFormat",
+        "start_line": 78,
+        "end_line": 82,
+        "ccn": 2,
+        "nloc": 5,
+        "parameters": 3
+      },
+      {
+        "path": "tests/test_soapy.cpp",
+        "function": "failure_paths_preserve_diagnostics",
+        "start_line": 125,
+        "end_line": 148,
+        "ccn": 2,
+        "nloc": 24,
+        "parameters": 0
+      },
+      {
+        "path": "scripts/verify_observability.py",
+        "function": "small_file_limit",
+        "start_line": 84,
+        "end_line": 86,
+        "ccn": 1,
+        "nloc": 3,
+        "parameters": 0
+      },
+      {
+        "path": "scripts/verify_observability.py",
+        "function": "zero_file_limit",
+        "start_line": 95,
+        "end_line": 97,
+        "ccn": 1,
+        "nloc": 3,
+        "parameters": 0
+      },
+      {
+        "path": "scripts/verify_portable.py",
+        "function": "strip",
+        "start_line": 12,
+        "end_line": 15,
+        "ccn": 1,
+        "nloc": 4,
+        "parameters": 1
+      },
+      {
+        "path": "scripts/verify_runtime.py",
+        "function": "common_args",
+        "start_line": 14,
+        "end_line": 21,
+        "ccn": 1,
+        "nloc": 8,
+        "parameters": 1
+      },
+      {
+        "path": "scripts/verify_soapy_stub.py",
+        "function": "strip_module_syntax",
+        "start_line": 24,
+        "end_line": 27,
+        "ccn": 1,
+        "nloc": 4,
+        "parameters": 1
+      },
+      {
+        "path": "src/main.cpp",
+        "function": "on_signal",
+        "start_line": 32,
+        "end_line": 32,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 1
+      },
+      {
+        "path": "src/main.cpp",
+        "function": "usage",
+        "start_line": 33,
+        "end_line": 52,
+        "ccn": 1,
+        "nloc": 20,
+        "parameters": 0
+      },
+      {
+        "path": "src/main.cpp",
+        "function": "acquisition",
+        "start_line": 54,
+        "end_line": 54,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 1
+      },
+      {
+        "path": "src/main.cpp",
+        "function": "dsp",
+        "start_line": 55,
+        "end_line": 55,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 1
+      },
+      {
+        "path": "src/main.cpp",
+        "function": "sink",
+        "start_line": 56,
+        "end_line": 56,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 1
+      },
+      {
+        "path": "src/rf/acquire.cppm",
+        "function": "rf::acquire::SDRSource::lossless",
+        "start_line": 53,
+        "end_line": 53,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/acquire.cppm",
+        "function": "rf::acquire::MockSource::MockSource",
+        "start_line": 57,
+        "end_line": 58,
+        "ccn": 1,
+        "nloc": 2,
+        "parameters": 2
+      },
+      {
+        "path": "src/rf/acquire.cppm",
+        "function": "rf::acquire::MockSource::stop",
+        "start_line": 71,
+        "end_line": 71,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/acquire.cppm",
+        "function": "rf::acquire::MockSource::config",
+        "start_line": 120,
+        "end_line": 120,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/acquire.cppm",
+        "function": "rf::acquire::MockSource::noise",
+        "start_line": 122,
+        "end_line": 122,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/acquire.cppm",
+        "function": "rf::acquire::ReplaySource::ReplaySource",
+        "start_line": 132,
+        "end_line": 133,
+        "ccn": 1,
+        "nloc": 2,
+        "parameters": 2
+      },
+      {
+        "path": "src/rf/acquire.cppm",
+        "function": "rf::acquire::ReplaySource::~ReplaySource",
+        "start_line": 134,
+        "end_line": 134,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/acquire.cppm",
+        "function": "rf::acquire::ReplaySource::lossless",
+        "start_line": 148,
+        "end_line": 148,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/acquire.cppm",
+        "function": "rf::acquire::ReplaySource::config",
+        "start_line": 161,
+        "end_line": 161,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/core.cppm",
+        "function": "rf::core::monotonic_now_ns",
+        "start_line": 69,
+        "end_line": 73,
+        "ccn": 1,
+        "nloc": 5,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/core.cppm",
+        "function": "rf::core::wall_now_ns",
+        "start_line": 75,
+        "end_line": 79,
+        "ccn": 1,
+        "nloc": 5,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/dsp.cppm",
+        "function": "rf::dsp::power_db",
+        "start_line": 33,
+        "end_line": 33,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 1
+      },
+      {
+        "path": "src/rf/dsp.cppm",
+        "function": "rf::dsp::StreamingDetector::reset",
+        "start_line": 81,
+        "end_line": 85,
+        "ccn": 1,
+        "nloc": 5,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/dsp.cppm",
+        "function": "rf::dsp::StreamingDetector::windows_processed",
+        "start_line": 114,
+        "end_line": 114,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/dsp.cppm",
+        "function": "rf::dsp::StreamingDetector::invalid_windows",
+        "start_line": 115,
+        "end_line": 115,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/dsp.cppm",
+        "function": "rf::dsp::StreamingDetector::continuity_resets",
+        "start_line": 116,
+        "end_line": 116,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/dsp.cppm",
+        "function": "rf::dsp::StreamingDetector::health",
+        "start_line": 117,
+        "end_line": 117,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/dsp.cppm",
+        "function": "rf::dsp::StreamingDetector::close",
+        "start_line": 159,
+        "end_line": 162,
+        "ccn": 1,
+        "nloc": 4,
+        "parameters": 4
+      },
+      {
+        "path": "src/rf/dsp.cppm",
+        "function": "rf::dsp::StreamingDetector::uncertain",
+        "start_line": 166,
+        "end_line": 169,
+        "ccn": 1,
+        "nloc": 4,
+        "parameters": 2
+      },
+      {
+        "path": "src/rf/fft.cppm",
+        "function": "rf::fft::Radix2FFT::reset",
+        "start_line": 73,
+        "end_line": 77,
+        "ccn": 1,
+        "nloc": 5,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/fft.cppm",
+        "function": "rf::fft::Radix2FFT::size",
+        "start_line": 112,
+        "end_line": 112,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/health.cppm",
+        "function": "rf::health::Monitor::Monitor",
+        "start_line": 46,
+        "end_line": 47,
+        "ccn": 1,
+        "nloc": 2,
+        "parameters": 2
+      },
+      {
+        "path": "src/rf/memory.cppm",
+        "function": "rf::memory::PinnedRegion::~PinnedRegion",
+        "start_line": 106,
+        "end_line": 106,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/memory.cppm",
+        "function": "rf::memory::PinnedRegion::PinnedRegion",
+        "start_line": 111,
+        "end_line": 115,
+        "ccn": 1,
+        "nloc": 5,
+        "parameters": 1
+      },
+      {
+        "path": "src/rf/memory.cppm",
+        "function": "rf::memory::PinnedRegion::data",
+        "start_line": 179,
+        "end_line": 179,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/memory.cppm",
+        "function": "rf::memory::PinnedRegion::data",
+        "start_line": 180,
+        "end_line": 180,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/memory.cppm",
+        "function": "rf::memory::PinnedRegion::capacity",
+        "start_line": 181,
+        "end_line": 181,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/memory.cppm",
+        "function": "rf::memory::PinnedRegion::bytes",
+        "start_line": 182,
+        "end_line": 182,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/memory.cppm",
+        "function": "rf::memory::PinnedRegion::mapped",
+        "start_line": 183,
+        "end_line": 183,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/memory.cppm",
+        "function": "rf::memory::PinnedRegion::locked",
+        "start_line": 184,
+        "end_line": 184,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/memory.cppm",
+        "function": "rf::memory::PinnedRegion::span",
+        "start_line": 185,
+        "end_line": 185,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/memory.cppm",
+        "function": "rf::memory::SPSCFreeList::SPSCFreeList",
+        "start_line": 203,
+        "end_line": 203,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/memory.cppm",
+        "function": "rf::memory::SPSCFreeList::approx_free",
+        "start_line": 240,
+        "end_line": 244,
+        "ccn": 1,
+        "nloc": 5,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/memory.cppm",
+        "function": "rf::memory::SPSCFreeList::slots",
+        "start_line": 245,
+        "end_line": 245,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/memory.cppm",
+        "function": "rf::memory::FixedPool::reset_quiescent",
+        "start_line": 279,
+        "end_line": 279,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/memory.cppm",
+        "function": "rf::memory::FixedPool::ready",
+        "start_line": 280,
+        "end_line": 280,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/memory.cppm",
+        "function": "rf::memory::FixedPool::slot",
+        "start_line": 286,
+        "end_line": 288,
+        "ccn": 1,
+        "nloc": 3,
+        "parameters": 1
+      },
+      {
+        "path": "src/rf/memory.cppm",
+        "function": "rf::memory::FixedPool::slot",
+        "start_line": 289,
+        "end_line": 291,
+        "ccn": 1,
+        "nloc": 3,
+        "parameters": 1
+      },
+      {
+        "path": "src/rf/memory.cppm",
+        "function": "rf::memory::FixedPool::approx_free",
+        "start_line": 293,
+        "end_line": 293,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/memory.cppm",
+        "function": "rf::memory::FixedPool::slot_capacity",
+        "start_line": 295,
+        "end_line": 295,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/memory.cppm",
+        "function": "rf::memory::FixedPool::slots",
+        "start_line": 296,
+        "end_line": 296,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/memory.cppm",
+        "function": "rf::memory::FixedPool::payload_bytes",
+        "start_line": 297,
+        "end_line": 297,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/output.cppm",
+        "function": "rf::output::CsvWriter::CsvWriter",
+        "start_line": 22,
+        "end_line": 22,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 1
+      },
+      {
+        "path": "src/rf/output.cppm",
+        "function": "rf::output::CsvWriter::~CsvWriter",
+        "start_line": 23,
+        "end_line": 23,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/output.cppm",
+        "function": "rf::output::CsvWriter::callback",
+        "start_line": 50,
+        "end_line": 52,
+        "ccn": 1,
+        "nloc": 3,
+        "parameters": 2
+      },
+      {
+        "path": "src/rf/output.cppm",
+        "function": "rf::output::CsvWriter::fail",
+        "start_line": 66,
+        "end_line": 70,
+        "ccn": 1,
+        "nloc": 5,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/pipeline.cppm",
+        "function": "rf::pipeline::PipelineSystem::PipelineSystem",
+        "start_line": 54,
+        "end_line": 55,
+        "ccn": 1,
+        "nloc": 2,
+        "parameters": 3
+      },
+      {
+        "path": "src/rf/pipeline.cppm",
+        "function": "rf::pipeline::PipelineSystem::ready",
+        "start_line": 165,
+        "end_line": 165,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/pipeline.cppm",
+        "function": "rf::pipeline::PipelineSystem::capture_slots_free",
+        "start_line": 166,
+        "end_line": 166,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/pipeline.cppm",
+        "function": "rf::pipeline::PipelineSystem::scratch_slots_free",
+        "start_line": 167,
+        "end_line": 167,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/pipeline.cppm",
+        "function": "rf::pipeline::PipelineSystem::event_slots_free",
+        "start_line": 168,
+        "end_line": 168,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/pipeline.cppm",
+        "function": "rf::pipeline::PipelineSystem::last_excess_db",
+        "start_line": 169,
+        "end_line": 169,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/pipeline.cppm",
+        "function": "rf::pipeline::PipelineSystem::noise_floor_db",
+        "start_line": 171,
+        "end_line": 171,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/pipeline.cppm",
+        "function": "rf::pipeline::PipelineSystem::publish_analysis_health",
+        "start_line": 173,
+        "end_line": 178,
+        "ccn": 1,
+        "nloc": 6,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/pipeline.cppm",
+        "function": "rf::pipeline::PipelineSystem::fatal",
+        "start_line": 179,
+        "end_line": 179,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/pipeline.cppm",
+        "function": "rf::pipeline::PipelineSystem::on_candidate",
+        "start_line": 181,
+        "end_line": 183,
+        "ccn": 1,
+        "nloc": 3,
+        "parameters": 3
+      },
+      {
+        "path": "src/rf/pipeline.cppm",
+        "function": "rf::pipeline::PipelineSystem::alignas",
+        "start_line": 194,
+        "end_line": 194,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 1
+      },
+      {
+        "path": "src/rf/runtime.cppm",
+        "function": "rf::runtime::HandleQueue::approx_size",
+        "start_line": 59,
+        "end_line": 63,
+        "ccn": 1,
+        "nloc": 5,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/runtime.cppm",
+        "function": "rf::runtime::HandleQueue::capacity",
+        "start_line": 64,
+        "end_line": 64,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/runtime.cppm",
+        "function": "rf::runtime::alignas",
+        "start_line": 75,
+        "end_line": 80,
+        "ccn": 1,
+        "nloc": 6,
+        "parameters": 1
+      },
+      {
+        "path": "src/rf/runtime.cppm",
+        "function": "rf::runtime::StageState::request_stop",
+        "start_line": 124,
+        "end_line": 124,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/runtime.cppm",
+        "function": "rf::runtime::StageState::stopping",
+        "start_line": 125,
+        "end_line": 125,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/runtime.cppm",
+        "function": "rf::runtime::set_realtime_fifo",
+        "start_line": 166,
+        "end_line": 170,
+        "ccn": 1,
+        "nloc": 5,
+        "parameters": 1
+      },
+      {
+        "path": "src/rf/signal.cppm",
+        "function": "rf::signal::CaptureMetadata::zero",
+        "start_line": 50,
+        "end_line": 50,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/signal.cppm",
+        "function": "rf::signal::SpectralCandidate::zero",
+        "start_line": 96,
+        "end_line": 96,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/signal.cppm",
+        "function": "rf::signal::EventTensor::index",
+        "start_line": 121,
+        "end_line": 123,
+        "ccn": 1,
+        "nloc": 3,
+        "parameters": 2
+      },
+      {
+        "path": "src/rf/signal.cppm",
+        "function": "rf::signal::EventTensor::row",
+        "start_line": 124,
+        "end_line": 124,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 1
+      },
+      {
+        "path": "src/rf/soapy.cppm",
+        "function": "rf::acquire::SoapySource::config",
+        "start_line": 184,
+        "end_line": 184,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/soapy.cppm",
+        "function": "rf::acquire::SoapySource::last_error",
+        "start_line": 185,
+        "end_line": 185,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/soapy.cppm",
+        "function": "rf::acquire::SoapySource::clear_error",
+        "start_line": 199,
+        "end_line": 199,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "src/rf/soapy.cppm",
+        "function": "rf::acquire::SoapySource::fail",
+        "start_line": 208,
+        "end_line": 208,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 1
+      },
+      {
+        "path": "tests/test_acquire.cpp",
+        "function": "config",
+        "start_line": 20,
+        "end_line": 20,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_dsp.cpp",
+        "function": "collect",
+        "start_line": 20,
+        "end_line": 22,
+        "ccn": 1,
+        "nloc": 3,
+        "parameters": 3
+      },
+      {
+        "path": "tests/test_dsp.cpp",
+        "function": "metadata",
+        "start_line": 23,
+        "end_line": 26,
+        "ccn": 1,
+        "nloc": 4,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_dsp.cpp",
+        "function": "config",
+        "start_line": 27,
+        "end_line": 30,
+        "ccn": 1,
+        "nloc": 4,
+        "parameters": 1
+      },
+      {
+        "path": "tests/test_dsp_boundaries.cpp",
+        "function": "collect",
+        "start_line": 27,
+        "end_line": 29,
+        "ccn": 1,
+        "nloc": 3,
+        "parameters": 3
+      },
+      {
+        "path": "tests/test_dsp_boundaries.cpp",
+        "function": "config",
+        "start_line": 30,
+        "end_line": 34,
+        "ccn": 1,
+        "nloc": 5,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_dsp_boundaries.cpp",
+        "function": "metadata",
+        "start_line": 35,
+        "end_line": 39,
+        "ccn": 1,
+        "nloc": 5,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_dsp_boundaries.cpp",
+        "function": "Fixture::feed",
+        "start_line": 56,
+        "end_line": 59,
+        "ccn": 1,
+        "nloc": 4,
+        "parameters": 2
+      },
+      {
+        "path": "tests/test_dsp_boundaries.cpp",
+        "function": "main",
+        "start_line": 205,
+        "end_line": 208,
+        "ccn": 1,
+        "nloc": 4,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_fft.cpp",
+        "function": "magnitude",
+        "start_line": 28,
+        "end_line": 30,
+        "ccn": 1,
+        "nloc": 3,
+        "parameters": 1
+      },
+      {
+        "path": "tests/test_fft.cpp",
+        "function": "check_close",
+        "start_line": 32,
+        "end_line": 34,
+        "ccn": 1,
+        "nloc": 3,
+        "parameters": 3
+      },
+      {
+        "path": "tests/test_fft.cpp",
+        "function": "test_invalid_initialization_and_reset",
+        "start_line": 36,
+        "end_line": 54,
+        "ccn": 1,
+        "nloc": 18,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_fft.cpp",
+        "function": "main",
+        "start_line": 144,
+        "end_line": 152,
+        "ccn": 1,
+        "nloc": 9,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_memory.cpp",
+        "function": "main",
+        "start_line": 199,
+        "end_line": 207,
+        "ccn": 1,
+        "nloc": 9,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_pipeline.cpp",
+        "function": "config",
+        "start_line": 23,
+        "end_line": 23,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_pipeline.cpp",
+        "function": "FiniteSource::configure",
+        "start_line": 27,
+        "end_line": 27,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 1
+      },
+      {
+        "path": "tests/test_pipeline.cpp",
+        "function": "FiniteSource::start",
+        "start_line": 28,
+        "end_line": 28,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_pipeline.cpp",
+        "function": "FiniteSource::stop",
+        "start_line": 28,
+        "end_line": 28,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_pipeline.cpp",
+        "function": "FiniteSource::config",
+        "start_line": 29,
+        "end_line": 29,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_pipeline.cpp",
+        "function": "RecoveringSource::RecoveringSource",
+        "start_line": 40,
+        "end_line": 40,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 1
+      },
+      {
+        "path": "tests/test_pipeline.cpp",
+        "function": "RecoveringSource::configure",
+        "start_line": 41,
+        "end_line": 41,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 1
+      },
+      {
+        "path": "tests/test_pipeline.cpp",
+        "function": "RecoveringSource::start",
+        "start_line": 42,
+        "end_line": 42,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_pipeline.cpp",
+        "function": "RecoveringSource::stop",
+        "start_line": 43,
+        "end_line": 43,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_pipeline.cpp",
+        "function": "RecoveringSource::config",
+        "start_line": 44,
+        "end_line": 44,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_pipeline.cpp",
+        "function": "drained",
+        "start_line": 60,
+        "end_line": 69,
+        "ccn": 1,
+        "nloc": 10,
+        "parameters": 2
+      },
+      {
+        "path": "tests/test_pipeline.cpp",
+        "function": "ScriptedSource::configure",
+        "start_line": 75,
+        "end_line": 75,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 1
+      },
+      {
+        "path": "tests/test_pipeline.cpp",
+        "function": "ScriptedSource::start",
+        "start_line": 76,
+        "end_line": 76,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_pipeline.cpp",
+        "function": "ScriptedSource::stop",
+        "start_line": 76,
+        "end_line": 76,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_pipeline.cpp",
+        "function": "ScriptedSource::config",
+        "start_line": 77,
+        "end_line": 77,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_pipeline.cpp",
+        "function": "run_serial",
+        "start_line": 89,
+        "end_line": 91,
+        "ccn": 1,
+        "nloc": 3,
+        "parameters": 1
+      },
+      {
+        "path": "tests/test_regression.cpp",
+        "function": "main",
+        "start_line": 13,
+        "end_line": 24,
+        "ccn": 1,
+        "nloc": 12,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_simd.cpp",
+        "function": "next_s16",
+        "start_line": 24,
+        "end_line": 27,
+        "ccn": 1,
+        "nloc": 4,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_soapy.cpp",
+        "function": "fake::reset",
+        "start_line": 50,
+        "end_line": 59,
+        "ccn": 1,
+        "nloc": 10,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_soapy.cpp",
+        "function": "SoapySDRDevice_unmake",
+        "start_line": 64,
+        "end_line": 64,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_soapy.cpp",
+        "function": "SoapySDRDevice_lastStatus",
+        "start_line": 65,
+        "end_line": 65,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_soapy.cpp",
+        "function": "SoapySDRDevice_lastError",
+        "start_line": 66,
+        "end_line": 66,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_soapy.cpp",
+        "function": "SoapySDR_free",
+        "start_line": 68,
+        "end_line": 68,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 1
+      },
+      {
+        "path": "tests/test_soapy.cpp",
+        "function": "SoapySDRDevice_getNumChannels",
+        "start_line": 69,
+        "end_line": 69,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 1
+      },
+      {
+        "path": "tests/test_soapy.cpp",
+        "function": "SoapySDRDevice_getFrequency",
+        "start_line": 71,
+        "end_line": 71,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 2
+      },
+      {
+        "path": "tests/test_soapy.cpp",
+        "function": "SoapySDRDevice_getBandwidth",
+        "start_line": 75,
+        "end_line": 75,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 2
+      },
+      {
+        "path": "tests/test_soapy.cpp",
+        "function": "SoapySDRDevice_getGain",
+        "start_line": 77,
+        "end_line": 77,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 2
+      },
+      {
+        "path": "tests/test_soapy.cpp",
+        "function": "SoapySDRDevice_activateStream",
+        "start_line": 86,
+        "end_line": 86,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 3
+      },
+      {
+        "path": "tests/test_soapy.cpp",
+        "function": "SoapySDRDevice_deactivateStream",
+        "start_line": 87,
+        "end_line": 87,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 2
+      },
+      {
+        "path": "tests/test_soapy.cpp",
+        "function": "SoapySDRDevice_closeStream",
+        "start_line": 88,
+        "end_line": 88,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_soapy.cpp",
+        "function": "SoapySDRDevice_readStream",
+        "start_line": 89,
+        "end_line": 91,
+        "ccn": 1,
+        "nloc": 3,
+        "parameters": 5
+      },
+      {
+        "path": "tests/test_soapy.cpp",
+        "function": "requested",
+        "start_line": 94,
+        "end_line": 94,
+        "ccn": 1,
+        "nloc": 1,
+        "parameters": 0
+      },
+      {
+        "path": "tests/test_soapy.cpp",
+        "function": "main",
+        "start_line": 246,
+        "end_line": 252,
+        "ccn": 1,
+        "nloc": 7,
+        "parameters": 0
+      }
+    ]
+  }
+}

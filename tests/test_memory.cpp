@@ -8,6 +8,8 @@
 #include <cstdint>
 #include <cstdio>
 #include <cstdlib>
+#include <limits>
+#include <utility>
 #include <thread>
 #endif
 
@@ -17,6 +19,7 @@ import std;
 import rf.core;
 import rf.memory;
 import rf.runtime;
+import rf.signal;
 
 #define CHECK(cond) do { if (!(cond)) { std::fprintf(stderr, "CHECK failed: %s (%s:%d)\n", #cond, __FILE__, __LINE__); std::exit(1); } } while (0)
 
@@ -76,6 +79,48 @@ static void test_freelist_single_thread() {
     CHECK(!fl.release(0));                            // double release → protocol violation
     CHECK(fl.approx_free() == 8);
     std::puts("free list (single thread): ok");
+}
+
+static void test_region_and_pool_boundaries() {
+    using Error=rf::memory::MemoryError;
+    rf::memory::PinnedRegion<std::uint64_t> source,destination;
+    CHECK(source.map(std::numeric_limits<std::size_t>::max(),rf::memory::UnlockedRegionConfig)==Error::invalid_size);
+    rf::memory::PinnedRegion<std::uint8_t> bytes;
+    CHECK(bytes.map(std::numeric_limits<std::size_t>::max(),rf::memory::UnlockedRegionConfig)==Error::invalid_size);
+    CHECK(!bytes.mapped() && bytes.data()==nullptr && bytes.bytes()==0);
+    CHECK(source.map(17,{false,false,true})==Error::none);
+    source.data()[16]=123;
+    CHECK(source.map(1,rf::memory::UnlockedRegionConfig)==Error::already_initialized);
+    CHECK(destination.map(8,rf::memory::UnlockedRegionConfig)==Error::none);
+    destination=std::move(source);
+    CHECK(!source.mapped() && source.capacity()==0 && source.bytes()==0 && !source.locked());
+    const auto& view=destination;
+    CHECK(view.capacity()==17 && view.data()[16]==123);
+    auto* alias=&destination;destination=std::move(*alias);
+    CHECK(destination.capacity()==17 && destination.data()[16]==123);
+    destination.unmap();destination.unmap();CHECK(destination.span().empty());
+
+    rf::memory::FixedPool<std::uint64_t,8,4> pool;
+    CHECK(!pool.ready() && !pool.release(0));
+    CHECK(pool.initialize(rf::memory::UnlockedRegionConfig)==Error::none);
+    CHECK(!pool.release(4) && !pool.release(InvalidSlot));
+    for(SlotIndex index=0;index<4;++index){
+        const auto slot=pool.try_acquire();CHECK(slot<4);
+        CHECK(reinterpret_cast<std::uintptr_t>(pool.slot(slot))%rf::core::CacheLineSize==0);
+        pool.slot(slot)[7]=100+slot;
+    }
+    const auto& const_pool=pool;
+    for(SlotIndex index=0;index<4;++index){CHECK(const_pool.slot(index)[7]==100+index);CHECK(pool.release(index));}
+    pool.reset_quiescent();CHECK(!pool.ready() && pool.try_acquire()==InvalidSlot);
+    CHECK(pool.initialize(rf::memory::UnlockedRegionConfig)==Error::none && pool.approx_free()==4);
+
+    rf::signal::EventTensor tensor;
+    for(std::size_t hop=0;hop<tensor.Hops;++hop){
+        for(std::size_t bin=0;bin<tensor.Bins;++bin)tensor.row(hop)[bin]=static_cast<std::int8_t>((hop+bin)%128);
+    }
+    for(std::size_t hop=0;hop<tensor.Hops;++hop)
+        for(std::size_t bin=0;bin<tensor.Bins;++bin)
+            CHECK(tensor.data[rf::signal::EventTensor::index(hop,bin)]==static_cast<std::int8_t>((hop+bin)%128));
 }
 
 static void test_queue_single_thread() {
@@ -154,6 +199,7 @@ static void test_cross_thread_stress() {
 int main() {
     test_pinned_region();
     test_freelist_single_thread();
+    test_region_and_pool_boundaries();
     test_queue_single_thread();
     test_cross_thread_stress();
     std::puts("test_memory: PASS");

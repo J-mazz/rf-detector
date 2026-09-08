@@ -107,6 +107,9 @@ link test_dsp "$SRC/../tests/test_dsp.cpp"
 link test_acquire "$SRC/../tests/test_acquire.cpp"
 link test_regression "$SRC/../tests/test_regression.cpp"
 link test_health "$SRC/../tests/test_health.cpp"
+link test_runtime "$SRC/../tests/test_runtime.cpp"
+link test_output "$SRC/../tests/test_output.cpp"
+link test_dsp_boundaries "$SRC/../tests/test_dsp_boundaries.cpp"
 if [[ $SOAPY -eq 1 ]]; then
   link test_soapy "$SRC/../tests/test_soapy.cpp"
 fi

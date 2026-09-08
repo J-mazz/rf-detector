@@ -60,7 +60,7 @@ add_executable(rfdet src/main.cpp)
 target_link_libraries(rfdet PRIVATE rf)
 
 enable_testing()
-foreach(t IN ITEMS test_memory test_simd test_pipeline test_fft test_dsp test_acquire test_regression test_health)
+foreach(t IN ITEMS test_memory test_simd test_pipeline test_fft test_dsp test_acquire test_regression test_health test_runtime test_output test_dsp_boundaries)
   add_executable(${t} tests/${t}.cpp)
   target_link_libraries(${t} PRIVATE rf)
   add_test(NAME ${t} COMMAND ${t})
@@ -72,6 +72,13 @@ if(Python3_Interpreter_FOUND)
       COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/scripts/verify_${check}.py" "$<TARGET_FILE:rfdet>")
     set_tests_properties(cli_${check} PROPERTIES TIMEOUT 30)
   endforeach()
+  add_test(NAME cli_validation
+    COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/scripts/verify_cli.py" "$<TARGET_FILE:rfdet>")
+  set_tests_properties(cli_validation PROPERTIES TIMEOUT 30)
+  add_test(NAME soapy_stub
+    COMMAND "${Python3_EXECUTABLE}" "${CMAKE_CURRENT_SOURCE_DIR}/scripts/verify_soapy_stub.py"
+      --compiler "${CMAKE_CXX_COMPILER}" --out "${CMAKE_CURRENT_BINARY_DIR}/soapy-stub")
+  set_tests_properties(soapy_stub PROPERTIES TIMEOUT 180)
 endif()
 if(RF_WITH_SOAPY)
   add_executable(test_soapy tests/test_soapy.cpp)

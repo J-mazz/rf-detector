@@ -92,6 +92,17 @@ with tempfile.TemporaryDirectory(prefix='rf-observability-') as tmp:
                              capture_output=True, timeout=3, preexec_fn=small_file_limit)
         assert run.returncode == 5, (run.returncode, run.stderr)
         assert b'health state=failed' in run.stderr, run.stderr
+        def zero_file_limit():
+            signal.signal(signal.SIGXFSZ, signal.SIG_IGN)
+            resource.setrlimit(resource.RLIMIT_FSIZE, (0, 0))
+
+        # Failure while writing the header must reject output setup before
+        # acquisition starts, even though creating the empty file succeeds.
+        run = subprocess.run([exe, '--no-lock', '--events', str(root / 'header-full.csv')],
+                             capture_output=True, timeout=3, preexec_fn=zero_file_limit)
+        assert run.returncode == 2, (run.returncode, run.stderr)
+        assert b'events output' in run.stderr and b'samples received=' not in run.stderr
+        assert (root / 'header-full.csv').stat().st_size == 0
         print('option validation and output failure: PASS')
 
 print('verify_observability: PASS')

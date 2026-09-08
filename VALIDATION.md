@@ -1,3 +1,68 @@
+# Test coverage expansion — 2026-09-08
+
+The follow-up [complexity assessment](docs/quality/complexity.md) records 34 completed CodeScene reviews (32 scored files), a separately labeled local CCN inventory, and parser/scoring limitations. CodeScene reports CC 60 for `main`, 42 for detector initialization, and 41 for detector analysis; `dsp.cppm` has Code Health 4.05/10. Coverage percentages below do not imply low cyclomatic complexity.
+
+No production source changes. The default suite now contains eleven C++ unit executables, four CLI scripts, and an automatically registered Soapy C API shim check: **16/16 CTest checks pass**. The new CLI validation script exercises **157 cases**. Canonical GCC 16 C++26/import-std compilation and all eleven native executables pass; the separate native Soapy shim also passes.
+
+GCC/gcov 16, CMake Debug with `--coverage`, Linux x86-64: project executable-line coverage increased from **788/820 (96.10%)** to **831/837 (99.28%)**. The denominator grows because the added tests instantiate previously unused template/member functions. This is source-line coverage of the configured non-Soapy build, not branch coverage or hardware coverage. Several conditions share a line, so explicit boundary fixtures remain necessary even for modules reporting 100%.
+
+| Area | Added checks |
+|---|---|
+| DSP | Invalid configuration and input matrices, min/max FFT sizes, allocation rollback across successive memlock budgets, every continuity trigger, same-detector rate/bandwidth cache changes, finite/nonfinite/clipped/zero input, timestamp overflow, gap/invalid-input closure, idempotent finish |
+| Acquisition | Receiver configuration boundaries, mock restart/seed/partial-read behavior, invalid buffers without sample consumption, replay EOF/restart/read caps/oversize requests, post-open truncation, nonregular/missing files |
+| Pipeline | Uninitialized workers, invalid setup, malformed counts, consecutive-failure recovery, exact hardware-time gap tolerance, untimed reads, delayed-sink event loss and final sample/event/slot accounting |
+| Runtime/memory/health | Final publication during drain, queue saturation/wraparound, CPU affinity with restoration, mapping moves/size overflow, pool reset/reinitialization, tensor row layout, individual health fault flags, partial DSP progress and terminal-state precedence |
+| Output/CLI | Exact CSV and health serialization, live records, exclusive creation, destructor/idempotent close, header/write/close failures, invalid numeric/options/setup inputs, accepted limits, empty replay, symlink target preservation |
+| Soapy shim | Device/channel/setter/getter/format failures, rollback/retry, invalid scales/readback, argument limits, setup failure/retry, malformed reads and timeouts, cleanup-error precedence, diagnostic truncation |
+
+Four deliberate faults in temporary implementation copies were rejected by the corresponding tests: omitting the final drain pop, ignoring `fclose` failure, retaining stale segment masks, and omitting the event-drop counter. Production files were not modified for these probes.
+
+## Reproduce native and coverage checks
+
+Use a new coverage directory, or clear only that build's generated coverage counters before measuring a changed suite.
+
+```sh
+CXX=/usr/bin/g++ ./build.sh --out build-tests-expanded
+for test in build-tests-expanded/test_*; do "$test" || exit; done
+python3 scripts/verify_replay.py build-tests-expanded/rfdet
+python3 scripts/verify_runtime.py build-tests-expanded/rfdet
+python3 scripts/verify_observability.py build-tests-expanded/rfdet
+python3 scripts/verify_cli.py build-tests-expanded/rfdet
+python3 scripts/verify_soapy_stub.py --native
+
+cmake -S . -B build-coverage-final -G Ninja -DCMAKE_BUILD_TYPE=Debug \
+  -DCMAKE_CXX_FLAGS=--coverage -DCMAKE_EXE_LINKER_FLAGS=--coverage
+cmake --build build-coverage-final -j 4
+ctest --test-dir build-coverage-final --output-on-failure
+python3 scripts/report_coverage.py build-coverage-final --missing
+```
+
+## Sanitizers on this host
+
+All eleven portable unit executables, all four CLI scripts, and the Soapy body shim passed **Clang 21 ASan + UBSan**. LeakSanitizer was disabled. **ThreadSanitizer passed** the 300,000-handoff memory stress test plus pipeline and runtime tests. These are body checks, not native module sanitizer checks.
+
+GCC's shared UBSan runtime is missing, so the GCC sanitizer attempt could not link. The installed Swift toolchain provides working Clang sanitizer libraries. Invoke its actual compiler path: the `clang++` Swiftly launcher timed out on this host. Swift's TSan additionally needs its dispatch and Blocks libraries; the portable verifier now honors `LDFLAGS` for this purpose.
+
+```sh
+export CXX=/home/jmazz/.local/share/swiftly/toolchains/6.3.0/usr/bin/clang++
+export ASAN_OPTIONS=detect_leaks=0:halt_on_error=1
+python3 scripts/verify_portable.py --sanitizer address
+python3 scripts/verify_soapy_stub.py --sanitizer address
+for check in replay runtime observability cli; do
+  python3 "scripts/verify_${check}.py" .verify-address/rfdet || exit
+done
+LDFLAGS='-L/home/jmazz/.local/share/swiftly/toolchains/6.3.0/usr/lib/swift/linux -Wl,-rpath,/home/jmazz/.local/share/swiftly/toolchains/6.3.0/usr/lib/swift/linux -ldispatch -lBlocksRuntime' \
+  python3 scripts/verify_portable.py --sanitizer thread --only test_memory test_pipeline test_runtime
+```
+
+## Remaining limits
+
+Six instrumented source lines remain unexecuted: OS thread-creation failure in `main.cpp`, actual OS `mlock` failure after the internal budget check, the free-list ownership-corruption guard, and capture-queue saturation. The current capture queue and capture pool both hold 16 entries, making queue saturation unreachable through normal single-producer ownership. The tests exercise pool exhaustion instead. Other conditions sharing executed lines, such as event-queue saturation and scratch exhaustion, also require violating the current topology/ownership contract or dedicated fault injection.
+
+Real SoapySDR SDK/device behavior, ARM/NEON, big-endian replay, sustained thermals, field detection, and hardware alert latency remain unverified. The two previously documented direct-test gaps—same-detector configuration cache invalidation and isolated close failure—are now covered. Historical validation records below describe their respective earlier revisions.
+
+---
+
 # Runtime refactor validation — 2026-09-07
 
 The refactor plan is in [docs/superpowers/plans/2026-09-07-runtime-refactor.md](docs/superpowers/plans/2026-09-07-runtime-refactor.md). Host/toolchain: Linux x86-64, Intel Core Ultra 9 185H, GCC 16.2.1; CMake 4.3.0 / Ninja.

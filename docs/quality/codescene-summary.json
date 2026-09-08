@@ -1,0 +1,466 @@
+{
+  "generated_at": "2026-09-08T11:18:48.433407+00:00",
+  "tool": "CodeScene",
+  "version": "cs version 1.0.40 (8a7257420cc2dec1cf6ff7866db4da8c58f67602)\nBuilt on Linux amd64 at 2026-09-03",
+  "reviewed_files": 34,
+  "scored_files": 32,
+  "unscored_files": [
+    "scripts/benchmark_runtime.py",
+    "scripts/verify_replay.py"
+  ],
+  "files": [
+    {
+      "path": "src/main.cpp",
+      "code_health": 7.0,
+      "categories": [
+        "Bumpy Road Ahead",
+        "Overall Code Complexity",
+        "Complex Method",
+        "Complex Conditional"
+      ]
+    },
+    {
+      "path": "src/rf/acquire.cppm",
+      "code_health": 9.66,
+      "categories": [
+        "Complex Method"
+      ]
+    },
+    {
+      "path": "src/rf/core.cppm",
+      "code_health": 10.0,
+      "categories": []
+    },
+    {
+      "path": "src/rf/dsp.cppm",
+      "code_health": 4.05,
+      "categories": [
+        "Bumpy Road Ahead",
+        "Overall Code Complexity",
+        "Complex Method",
+        "Complex Conditional",
+        "Excess Number of Function Arguments"
+      ]
+    },
+    {
+      "path": "src/rf/fft.cppm",
+      "code_health": 9.24,
+      "categories": [
+        "Bumpy Road Ahead",
+        "Complex Method",
+        "Complex Conditional"
+      ]
+    },
+    {
+      "path": "src/rf/health.cppm",
+      "code_health": 9.13,
+      "categories": [
+        "Complex Method",
+        "Complex Conditional"
+      ]
+    },
+    {
+      "path": "src/rf/memory.cppm",
+      "code_health": 9.24,
+      "categories": [
+        "Bumpy Road Ahead",
+        "Complex Method",
+        "Complex Conditional"
+      ]
+    },
+    {
+      "path": "src/rf/output.cppm",
+      "code_health": 10.0,
+      "categories": []
+    },
+    {
+      "path": "src/rf/pipeline.cppm",
+      "code_health": 7.78,
+      "categories": [
+        "Bumpy Road Ahead",
+        "Overall Code Complexity",
+        "Complex Method",
+        "Complex Conditional"
+      ]
+    },
+    {
+      "path": "src/rf/runtime.cppm",
+      "code_health": 10.0,
+      "categories": []
+    },
+    {
+      "path": "src/rf/signal.cppm",
+      "code_health": 10.0,
+      "categories": []
+    },
+    {
+      "path": "src/rf/simd.cppm",
+      "code_health": 9.68,
+      "categories": [
+        "Excess Number of Function Arguments"
+      ]
+    },
+    {
+      "path": "src/rf/soapy.cppm",
+      "code_health": 10.0,
+      "categories": []
+    },
+    {
+      "path": "tests/test_acquire.cpp",
+      "code_health": 8.67,
+      "categories": [
+        "Complex Method"
+      ]
+    },
+    {
+      "path": "tests/test_dsp.cpp",
+      "code_health": 8.8,
+      "categories": [
+        "Bumpy Road Ahead",
+        "Complex Method",
+        "Complex Conditional"
+      ]
+    },
+    {
+      "path": "tests/test_dsp_boundaries.cpp",
+      "code_health": 8.79,
+      "categories": [
+        "Overall Code Complexity",
+        "Complex Method"
+      ]
+    },
+    {
+      "path": "tests/test_fft.cpp",
+      "code_health": 10.0,
+      "categories": []
+    },
+    {
+      "path": "tests/test_health.cpp",
+      "code_health": 9.34,
+      "categories": [
+        "Complex Method"
+      ]
+    },
+    {
+      "path": "tests/test_memory.cpp",
+      "code_health": 8.96,
+      "categories": [
+        "Bumpy Road Ahead",
+        "Complex Method"
+      ]
+    },
+    {
+      "path": "tests/test_output.cpp",
+      "code_health": 9.24,
+      "categories": [
+        "Complex Method",
+        "Complex Conditional"
+      ]
+    },
+    {
+      "path": "tests/test_pipeline.cpp",
+      "code_health": 8.08,
+      "categories": [
+        "Overall Code Complexity",
+        "Complex Method",
+        "Large Assertion Blocks"
+      ]
+    },
+    {
+      "path": "tests/test_regression.cpp",
+      "code_health": 10.0,
+      "categories": []
+    },
+    {
+      "path": "tests/test_runtime.cpp",
+      "code_health": 9.52,
+      "categories": [
+        "Complex Method"
+      ]
+    },
+    {
+      "path": "tests/test_simd.cpp",
+      "code_health": 10.0,
+      "categories": []
+    },
+    {
+      "path": "tests/test_soapy.cpp",
+      "code_health": 7.8,
+      "categories": [
+        "Complex Method",
+        "Excess Number of Function Arguments",
+        "Large Assertion Blocks"
+      ]
+    },
+    {
+      "path": "scripts/assess_complexity.py",
+      "code_health": 10.0,
+      "categories": []
+    },
+    {
+      "path": "scripts/benchmark_runtime.py",
+      "code_health": null,
+      "categories": []
+    },
+    {
+      "path": "scripts/report_coverage.py",
+      "code_health": 8.8,
+      "categories": [
+        "Bumpy Road Ahead",
+        "Deep, Nested Complexity",
+        "Complex Method"
+      ]
+    },
+    {
+      "path": "scripts/verify_cli.py",
+      "code_health": 9.53,
+      "categories": [
+        "Bumpy Road Ahead",
+        "Complex Method"
+      ]
+    },
+    {
+      "path": "scripts/verify_observability.py",
+      "code_health": 8.95,
+      "categories": [
+        "Bumpy Road Ahead",
+        "Deep, Nested Complexity",
+        "Global Conditionals"
+      ]
+    },
+    {
+      "path": "scripts/verify_portable.py",
+      "code_health": 10.0,
+      "categories": [
+        "Global Conditionals"
+      ]
+    },
+    {
+      "path": "scripts/verify_replay.py",
+      "code_health": null,
+      "categories": []
+    },
+    {
+      "path": "scripts/verify_runtime.py",
+      "code_health": 10.0,
+      "categories": []
+    },
+    {
+      "path": "scripts/verify_soapy_stub.py",
+      "code_health": 10.0,
+      "categories": []
+    }
+  ],
+  "complex_methods": [
+    {
+      "path": "src/main.cpp",
+      "function": "main",
+      "start_line": 58,
+      "end_line": 167,
+      "cyclomatic_complexity": 60
+    },
+    {
+      "path": "src/rf/dsp.cppm",
+      "function": "initialize",
+      "start_line": 43,
+      "end_line": 79,
+      "cyclomatic_complexity": 42
+    },
+    {
+      "path": "src/rf/dsp.cppm",
+      "function": "analyze",
+      "start_line": 170,
+      "end_line": 236,
+      "cyclomatic_complexity": 41
+    },
+    {
+      "path": "tests/test_dsp.cpp",
+      "function": "main",
+      "start_line": 55,
+      "end_line": 199,
+      "cyclomatic_complexity": 30
+    },
+    {
+      "path": "src/rf/dsp.cppm",
+      "function": "feed",
+      "start_line": 86,
+      "end_line": 109,
+      "cyclomatic_complexity": 29
+    },
+    {
+      "path": "src/rf/pipeline.cppm",
+      "function": "run_acquisition",
+      "start_line": 69,
+      "end_line": 121,
+      "cyclomatic_complexity": 27
+    },
+    {
+      "path": "tests/test_health.cpp",
+      "function": "main",
+      "start_line": 15,
+      "end_line": 106,
+      "cyclomatic_complexity": 24
+    },
+    {
+      "path": "src/rf/health.cppm",
+      "function": "poll",
+      "start_line": 49,
+      "end_line": 103,
+      "cyclomatic_complexity": 23
+    },
+    {
+      "path": "tests/test_acquire.cpp",
+      "function": "main",
+      "start_line": 99,
+      "end_line": 142,
+      "cyclomatic_complexity": 21
+    },
+    {
+      "path": "tests/test_soapy.cpp",
+      "function": "configuration_failures_and_retry",
+      "start_line": 150,
+      "end_line": 199,
+      "cyclomatic_complexity": 21
+    },
+    {
+      "path": "tests/test_soapy.cpp",
+      "function": "stream_boundaries_and_cleanup",
+      "start_line": 201,
+      "end_line": 244,
+      "cyclomatic_complexity": 21
+    },
+    {
+      "path": "tests/test_pipeline.cpp",
+      "function": "failure_and_timestamp_boundaries",
+      "start_line": 92,
+      "end_line": 139,
+      "cyclomatic_complexity": 20
+    },
+    {
+      "path": "tests/test_acquire.cpp",
+      "function": "replay_boundaries",
+      "start_line": 67,
+      "end_line": 98,
+      "cyclomatic_complexity": 18
+    },
+    {
+      "path": "tests/test_memory.cpp",
+      "function": "test_region_and_pool_boundaries",
+      "start_line": 84,
+      "end_line": 124,
+      "cyclomatic_complexity": 18
+    },
+    {
+      "path": "scripts/report_coverage.py",
+      "function": "main",
+      "start_line": 17,
+      "end_line": 66,
+      "cyclomatic_complexity": 17
+    },
+    {
+      "path": "tests/test_runtime.cpp",
+      "function": "main",
+      "start_line": 26,
+      "end_line": 67,
+      "cyclomatic_complexity": 17
+    },
+    {
+      "path": "src/rf/memory.cppm",
+      "function": "map",
+      "start_line": 128,
+      "end_line": 170,
+      "cyclomatic_complexity": 15
+    },
+    {
+      "path": "tests/test_memory.cpp",
+      "function": "test_cross_thread_stress",
+      "start_line": 143,
+      "end_line": 197,
+      "cyclomatic_complexity": 15
+    },
+    {
+      "path": "tests/test_soapy.cpp",
+      "function": "configure_start_read_stop",
+      "start_line": 96,
+      "end_line": 123,
+      "cyclomatic_complexity": 13
+    },
+    {
+      "path": "src/rf/acquire.cppm",
+      "function": "valid_config",
+      "start_line": 37,
+      "end_line": 42,
+      "cyclomatic_complexity": 12
+    },
+    {
+      "path": "src/rf/pipeline.cppm",
+      "function": "run_dsp",
+      "start_line": 122,
+      "end_line": 145,
+      "cyclomatic_complexity": 12
+    },
+    {
+      "path": "tests/test_dsp_boundaries.cpp",
+      "function": "continuity_and_cache",
+      "start_line": 140,
+      "end_line": 179,
+      "cyclomatic_complexity": 12
+    },
+    {
+      "path": "scripts/verify_cli.py",
+      "function": "main",
+      "start_line": 9,
+      "end_line": 79,
+      "cyclomatic_complexity": 11
+    },
+    {
+      "path": "src/rf/dsp.cppm",
+      "function": "configure_segment",
+      "start_line": 127,
+      "end_line": 141,
+      "cyclomatic_complexity": 11
+    },
+    {
+      "path": "src/rf/fft.cppm",
+      "function": "initialize",
+      "start_line": 33,
+      "end_line": 71,
+      "cyclomatic_complexity": 11
+    },
+    {
+      "path": "tests/test_acquire.cpp",
+      "function": "configuration_and_lifecycle",
+      "start_line": 27,
+      "end_line": 65,
+      "cyclomatic_complexity": 11
+    },
+    {
+      "path": "tests/test_dsp_boundaries.cpp",
+      "function": "invalid_samples_and_time",
+      "start_line": 181,
+      "end_line": 203,
+      "cyclomatic_complexity": 11
+    },
+    {
+      "path": "src/rf/pipeline.cppm",
+      "function": "initialize",
+      "start_line": 57,
+      "end_line": 68,
+      "cyclomatic_complexity": 10
+    },
+    {
+      "path": "tests/test_output.cpp",
+      "function": "main",
+      "start_line": 47,
+      "end_line": 131,
+      "cyclomatic_complexity": 10
+    },
+    {
+      "path": "src/rf/health.cppm",
+      "function": "name",
+      "start_line": 19,
+      "end_line": 31,
+      "cyclomatic_complexity": 9
+    }
+  ]
+}

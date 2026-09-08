@@ -42,13 +42,15 @@ ctest --test-dir build-cmake --output-on-failure
 
 ## Verification
 
-The canonical build produces eight test executables, plus test_soapy when enabled. Run each test executable and require exit status zero. For the GCC 16 build above:
+The canonical build produces eleven test executables, plus test_soapy when enabled. CTest registers those eleven, four Python CLI checks, and a hardware-free Soapy C API shim check when Python is available (16 checks total). Run each test executable and require exit status zero. For the GCC 16 build above:
 
 ```sh
 for test in build-gcc16/test_*; do "$test" || exit; done
 python3 scripts/verify_replay.py build-gcc16/rfdet
 python3 scripts/verify_runtime.py build-gcc16/rfdet
 python3 scripts/verify_observability.py build-gcc16/rfdet
+python3 scripts/verify_cli.py build-gcc16/rfdet
+python3 scripts/verify_soapy_stub.py --native # GCC >=16, actual modules with test-only API shim
 ```
 
 ```sh
@@ -62,6 +64,18 @@ python3 scripts/verify_soapy_stub.py --sanitizer address
 ```
 
 Portable scripts remove module declarations/imports while preserving implementation bodies. They do not validate module visibility, import std, NEON or hardware. See [VALIDATION.md](VALIDATION.md) for actual results and remaining checks.
+
+To measure executable source-line coverage, use a fresh GCC build directory so old counters do not contaminate the report:
+
+```sh
+cmake -S . -B build-coverage -G Ninja -DCMAKE_BUILD_TYPE=Debug \
+  -DCMAKE_CXX_FLAGS=--coverage -DCMAKE_EXE_LINKER_FLAGS=--coverage
+cmake --build build-coverage -j 4
+ctest --test-dir build-coverage --output-on-failure
+python3 scripts/report_coverage.py build-coverage --missing
+```
+
+The report merges executable lines across module/template instantiations and excludes standard-library and test code. It measures the configured build, so Soapy, NEON, uninstantiated functions, and individual branches sharing a source line are not represented by that percentage. The Soapy shim is tested separately. `--gcov` selects a gcov executable matching the compiler. Portable sanitizer builds accept `CXX` and `LDFLAGS` for toolchain-specific runtime libraries.
 
 ## Events and configuration
 

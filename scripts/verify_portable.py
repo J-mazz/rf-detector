@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Verify implementation bodies on older compilers; NOT a module-build test."""
-import argparse, os, re, subprocess
+import argparse, os, re, shlex, subprocess
 from pathlib import Path
 p=argparse.ArgumentParser(description=__doc__)
 p.add_argument('--only', nargs='*')
@@ -28,7 +28,7 @@ for path in files:
     name='rfdet' if path.name=='main.cpp' else path.stem
     src=out/(name+'.cpp');exe=out/name
     src.write_text('#include "rf.hpp"\n'+f'#line 1 "{path}"\n'+strip(path.read_text()))
-    subprocess.run([os.environ.get('CXX','g++'),*flags,str(src),'-o',str(exe)],check=True,timeout=120)
+    subprocess.run([os.environ.get('CXX','g++'),*flags,str(src),*shlex.split(os.environ.get('LDFLAGS','')),'-o',str(exe)],check=True,timeout=120)
     print('built',name,flush=True)
     if not a.build_only and name!='rfdet':subprocess.run([str(exe)],check=True,timeout=60)
 print('Portable body verification completed. Module/import-std/NEON validation requires the target toolchain.',flush=True)
